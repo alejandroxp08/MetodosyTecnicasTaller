@@ -1,8 +1,18 @@
 #BlueJ package file
+<<<<<<< HEAD
+=======
+dependency1.from=Animacion
+dependency1.to=Repartidor
+dependency1.type=UsesDependency
+dependency2.from=Animacion
+dependency2.to=Direccion
+dependency2.type=UsesDependency
+>>>>>>> master
 editor.fx.0.height=0
 editor.fx.0.width=0
 editor.fx.0.x=0
 editor.fx.0.y=0
+<<<<<<< HEAD
 objectbench.height=94
 objectbench.width=770
 package.divider.horizontal=0.6
@@ -18,6 +28,23 @@ package.numTargets=4
 package.showExtends=true
 package.showUses=true
 project.charset=UTF-8
+=======
+objectbench.height=93
+objectbench.width=760
+package.divider.horizontal=0.6
+package.divider.vertical=0.8
+package.editor.height=393
+package.editor.width=670
+package.editor.x=52
+package.editor.y=52
+package.frame.height=600
+package.frame.width=800
+package.numDependencies=2
+package.numTargets=4
+package.showExtends=true
+package.showUses=true
+project.charset=windows-1252
+>>>>>>> master
 readme.height=58
 readme.name=@README
 readme.width=47
@@ -27,27 +54,49 @@ target1.height=50
 target1.name=Animacion
 target1.showInterface=false
 target1.type=ClassTarget
+<<<<<<< HEAD
 target1.width=100
 target1.x=80
 target1.y=120
+=======
+target1.width=90
+target1.x=90
+target1.y=10
+>>>>>>> master
 target2.height=50
 target2.name=Repartidor
 target2.showInterface=false
 target2.type=ClassTarget
+<<<<<<< HEAD
 target2.width=100
 target2.x=70
 target2.y=270
+=======
+target2.width=90
+target2.x=180
+target2.y=10
+>>>>>>> master
 target3.height=50
 target3.name=Pedido
 target3.showInterface=false
 target3.type=ClassTarget
 target3.width=80
+<<<<<<< HEAD
 target3.x=300
+=======
+target3.x=70
+>>>>>>> master
 target3.y=70
 target4.height=50
 target4.name=Direccion
 target4.showInterface=false
 target4.type=ClassTarget
+<<<<<<< HEAD
 target4.width=90
 target4.x=250
 target4.y=280
+=======
+target4.width=80
+target4.x=160
+target4.y=70
+>>>>>>> master
