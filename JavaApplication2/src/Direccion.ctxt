@@ -1,10 +1,14 @@
 #BlueJ class context
-comment0.params=direccion\ x\ y
-comment0.target=Direccion(java.lang.String,\ int,\ int)
-comment1.params=
-comment1.target=java.lang.String\ getDireccionNombre()
+comment0.target=Direccion
+comment0.text=\n\n\ @author\ Boris\n
+comment1.params=direccion\ x\ y
+comment1.target=Direccion(java.lang.String,\ int,\ int)
 comment2.params=
-comment2.target=int\ getPosX()
+comment2.target=java.lang.String\ getDireccionNombre()
 comment3.params=
-comment3.target=int\ getPosY()
-numComments=4
+comment3.target=int\ getPosX()
+comment4.params=
+comment4.target=int\ getPosY()
+comment5.params=d
+comment5.target=void\ setDireccion(java.lang.String)
+numComments=6

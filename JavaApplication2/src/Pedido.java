@@ -1,33 +1,29 @@
-
+import java.util.ArrayList;
 /**
  * Write a description of class Pedido here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Pedido
-{
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Pedido
-     */
-    public Pedido()
-    {
-        // initialise instance variables
-        x = 0;
+public class Pedido{
+    private String nomCliente;
+    Direccion direccion;
+    ArrayList<Solicitud> solicitudes;
+    public Pedido(String nc,Direccion d){
+        nomCliente=nc;
+        direccion=d;
+        solicitudes=new ArrayList<>();
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public void setNom(String nc){
+        nomCliente=nc;
+    }
+
+    public void setDireccion(Direccion d){
+        direccion=d;
+    }
+
+    public void setSoli(ArrayList<Solicitud> s){
+        solicitudes=s;
     }
 }

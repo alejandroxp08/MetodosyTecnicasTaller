@@ -17,13 +17,20 @@ public class Direccion {
         this.posX=x;
         this.posY=y;
     }
+
     public String getDireccionNombre(){
         return this.direccion;
     }
+
     public int getPosX(){
         return this.posX;
     }
+
     public int getPosY(){
         return this.posY;
+    }
+
+    public void setDireccion(String d){
+        direccion=d;
     }
 }
