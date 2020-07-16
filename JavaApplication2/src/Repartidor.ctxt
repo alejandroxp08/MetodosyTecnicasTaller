@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Repartidor
+comment0.text=\n\n\ @author\ Boris\n
+comment1.params=x\ y
+comment1.target=Repartidor(int,\ int)
+comment2.params=
+comment2.target=int\ getPosX()
+comment3.params=
+comment3.target=int\ getPosY()
+numComments=4
