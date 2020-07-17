@@ -9,6 +9,12 @@ public class Pedido{
     private String nomCliente;
     Direccion direccion;
     ArrayList<Solicitud> solicitudes;
+    public Pedido(){
+    
+    
+    }
+    
+    
     public Pedido(String nc,Direccion d){
         nomCliente=nc;
         direccion=d;

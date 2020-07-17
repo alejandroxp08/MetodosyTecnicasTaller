@@ -1,12 +1,14 @@
 #BlueJ class context
 comment0.target=Pedido
 comment0.text=\n\ Write\ a\ description\ of\ class\ Pedido\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=nc\ d
-comment1.target=Pedido(java.lang.String,\ Direccion)
-comment2.params=nc
-comment2.target=void\ setNom(java.lang.String)
-comment3.params=d
-comment3.target=void\ setDireccion(Direccion)
-comment4.params=s
-comment4.target=void\ setSoli(java.util.ArrayList)
-numComments=5
+comment1.params=
+comment1.target=Pedido()
+comment2.params=nc\ d
+comment2.target=Pedido(java.lang.String,\ Direccion)
+comment3.params=nc
+comment3.target=void\ setNom(java.lang.String)
+comment4.params=d
+comment4.target=void\ setDireccion(Direccion)
+comment5.params=s
+comment5.target=void\ setSoli(java.util.ArrayList)
+numComments=6

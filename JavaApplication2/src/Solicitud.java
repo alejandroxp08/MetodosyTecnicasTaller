@@ -13,4 +13,7 @@ public class Solicitud{
         cantidadP=cant;
     }
 
+    public void mostrarse(){
+        System.out.println("Nombre producto: "+producto+ " Cantidad: "+cantidadP);
+    }
 }

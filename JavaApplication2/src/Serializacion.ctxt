@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Serializacion
+comment0.text=\n\ Write\ a\ description\ of\ class\ Serializacion\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=Producto\ leer()
+comment2.params=
+comment2.target=void\ abrirsalida()
+comment3.params=
+comment3.target=void\ abrirentrada()
+comment4.params=
+comment4.target=void\ cerrarsalida()
+comment5.params=
+comment5.target=void\ cerrarentrada()
+comment6.params=d
+comment6.target=void\ escribir(Producto)
+comment7.params=dato
+comment7.target=void\ insertarBD(Producto)
+numComments=8

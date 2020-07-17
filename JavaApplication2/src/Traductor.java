@@ -12,7 +12,7 @@ public class Traductor{
     private String [] mensajeDividido;
     public Traductor(String mensaje){
         this.mensaje=mensaje;
-        mensajeTrad=null;
+        mensajeTrad=new Pedido();
         mensajeDividido=mensaje.split(" |\\,");
     }
 
@@ -20,12 +20,10 @@ public class Traductor{
         mensajeTrad.setNom(devolverNombre());
         mensajeTrad.setDireccion(devolverDireccion());
         mensajeTrad.setSoli(devolverSolicitudes());
-        
     }
 
     public String devolverNombre(){
-        String res=null;
-        String nom=null;
+        String nom="";
         boolean bb=true;
         int pos=0;
         for(int i=0;i<mensajeDividido.length&&bb;i++){
@@ -47,9 +45,8 @@ public class Traductor{
             cont++;
             linea=mensajeDividido[cont+1];
         }
-        res=nom;
         System.out.println("Nombre: "+ nom);
-        return res;
+        return nom;
     }
 
     public Direccion devolverDireccion(){
@@ -80,8 +77,44 @@ public class Traductor{
 
     public ArrayList<Solicitud> devolverSolicitudes(){
         ArrayList<Solicitud> res=new ArrayList<>();
-        
+        Serializacion ser= new Serializacion();
+        try {
+            ser.abrirentrada();
+            Producto d;
+            int cant=0;
+            do {
+                d = ser.leer();
+                for(int i=0;i<mensajeDividido.length-1;i++){
+                    String aux=mensajeDividido[i];
+                    if(d.getNom().equals(aux)){
+                        if(isNumeric(mensajeDividido[i+1])){
+                            cant=Integer.parseInt(mensajeDividido[i+1]);
+                        }
+                        else{
+                            cant=Integer.parseInt(mensajeDividido[i-1]);
+                        }
+                        Solicitud soli=new Solicitud(d,cant);
+                        soli.mostrarse();
+                        res.add(soli);
+                    }
+                }
+            } while(d!=null);
+            ser.cerrarentrada();
+        } catch (IOException e) {
+        } catch (ClassNotFoundException e) {
+        }
         return res;
+    }
+
+    private static boolean isNumeric(String cadena) {
+        boolean resultado;
+        try {
+            Integer.parseInt(cadena);
+            resultado = true;
+        } catch (NumberFormatException excepcion) {
+            resultado = false;
+        }
+        return resultado;
     }
 
 }

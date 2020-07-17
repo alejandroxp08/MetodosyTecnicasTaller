@@ -7,13 +7,19 @@
  */
 public class Producto{
     private String nombre;
-    private Double precio;
+    private double precio;
     private int prioridad;
     private String fabricante;
-    public Producto(String n,Double p,int pr,String f){
+    public Producto(String n,String f,double p,int pr){
         nombre=n;
         precio=p;
         prioridad=pr;
         fabricante=f;
     }
+
+    public String getNom(){
+        return nombre;
+    }
+
+
 }
