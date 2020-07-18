@@ -8,21 +8,24 @@ import java.io.*;
  */
 public class Traductor{
     private String mensaje;
-    private Pedido mensajeTrad;
     private String [] mensajeDividido;
-    public Traductor(String mensaje){
-        this.mensaje=mensaje;
-        mensajeTrad=new Pedido();
-        mensajeDividido=mensaje.split(" |\\,");
+    public Traductor(){
+        mensaje=null;
+    }
+    
+    public void recibirMensaje(){
+         Scanner sc=new Scanner(System.in);
+         mensaje=sc.nextLine();
+         mensajeDividido=mensaje.split(" |\\,");
     }
 
     public void traducirMensaje(){
-        mensajeTrad.setNom(devolverNombre());
-        mensajeTrad.setDireccion(devolverDireccion());
-        mensajeTrad.setSoli(devolverSolicitudes());
+        devolverNombre();
+        devolverDireccion();
+        devolverSolicitudes();
     }
 
-    public String devolverNombre(){
+    private void devolverNombre(){
         String nom="";
         boolean bb=true;
         int pos=0;
@@ -46,10 +49,10 @@ public class Traductor{
             linea=mensajeDividido[cont+1];
         }
         System.out.println("Nombre: "+ nom);
-        return nom;
+
     }
 
-    public Direccion devolverDireccion(){
+    private void devolverDireccion(){
         Direccion res=new Direccion(null,0,0);
         String direc=null;
         boolean bb=true;
@@ -72,10 +75,9 @@ public class Traductor{
         }
         res.setDireccion(direc);
         System.out.println("Direccion: "+ direc);
-        return res;
     }
 
-    public ArrayList<Solicitud> devolverSolicitudes(){
+    private void devolverSolicitudes(){
         ArrayList<Solicitud> res=new ArrayList<>();
         Serializacion ser= new Serializacion();
         try {
@@ -103,10 +105,9 @@ public class Traductor{
         } catch (IOException e) {
         } catch (ClassNotFoundException e) {
         }
-        return res;
     }
 
-    private static boolean isNumeric(String cadena) {
+    private boolean isNumeric(String cadena) {
         boolean resultado;
         try {
             Integer.parseInt(cadena);

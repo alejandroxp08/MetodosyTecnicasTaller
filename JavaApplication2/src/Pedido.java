@@ -7,18 +7,18 @@ import java.util.ArrayList;
  */
 public class Pedido{
     private String nomCliente;
-    Direccion direccion;
-    ArrayList<Solicitud> solicitudes;
+    private Direccion direccion;
+    private ArrayList<Solicitud> solicitudes;
+    private String observaciones;
     public Pedido(){
-    
-    
+
     }
     
-    
-    public Pedido(String nc,Direccion d){
+    public Pedido(String nc,Direccion d,String ob){
         nomCliente=nc;
         direccion=d;
         solicitudes=new ArrayList<>();
+        observaciones=ob;
     }
 
     public void setNom(String nc){
@@ -31,5 +31,9 @@ public class Pedido{
 
     public void setSoli(ArrayList<Solicitud> s){
         solicitudes=s;
+    }
+
+    public void setObs(String o){
+        observaciones=o;
     }
 }

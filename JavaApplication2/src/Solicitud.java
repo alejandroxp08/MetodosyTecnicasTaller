@@ -14,6 +14,6 @@ public class Solicitud{
     }
 
     public void mostrarse(){
-        System.out.println("Nombre producto: "+producto+ " Cantidad: "+cantidadP);
+        System.out.println("Codigo de producto: "+producto.getCodigo()+ " Cantidad: "+cantidadP);
     }
 }
