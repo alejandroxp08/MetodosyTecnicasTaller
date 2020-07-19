@@ -6,9 +6,9 @@
  * @version (a version number or a date)
  */
 public class Solicitud{
-    Datos producto;
+   Producto producto;
     Integer cantidadP;
-    public Solicitud(Datos p,Integer cant){
+    public Solicitud(Producto p,Integer cant){
         producto=p;
         cantidadP=cant;
     }

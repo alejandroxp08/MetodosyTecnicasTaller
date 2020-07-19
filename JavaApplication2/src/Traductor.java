@@ -13,7 +13,7 @@ public class Traductor{
         mensaje=null;
     }
 
-    public void recibirMensaje(){
+    public void recibirMensaje()throws IOException{
         Scanner sc=new Scanner(System.in);
         mensaje=sc.nextLine();
         mensajeDividido=mensaje.split(" |\\,");
@@ -21,7 +21,7 @@ public class Traductor{
         traducirMensaje();
     }
 
-    private void traducirMensaje(){
+    private void traducirMensaje()throws IOException{
         devolverNombre();
         devolverDireccion();
         devolverSolicitudes();
@@ -79,13 +79,14 @@ public class Traductor{
         System.out.println("Direccion: "+ direc);
     }
 
-    public ArrayList<Datos> devolverSolicitudes(){
+    public ArrayList<Producto> devolverSolicitudes()throws IOException{
         ArrayList <Solicitud> res=new ArrayList<>();
-        ArrayList <Datos> productos=new ArrayList<>();
+        ArrayList <Producto> productos=new ArrayList<>();
         Serializacion ser= new Serializacion();
+        ser.insertarBD();
         try {
             ser.abrirentrada();
-            Datos d;
+            Producto d;
             do{
                 d = ser.leer();
                 productos.add(d);
