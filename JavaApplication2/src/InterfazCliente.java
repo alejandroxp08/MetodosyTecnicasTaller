@@ -68,18 +68,6 @@ public class InterfazCliente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        textfieldObservaciones.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textfieldObservacionesActionPerformed(evt);
-            }
-        });
-
-        textfieldDireccion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textfieldDireccionActionPerformed(evt);
-            }
-        });
-
         buttonAnadir.setText("OK");
         buttonAnadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,11 +81,6 @@ public class InterfazCliente extends javax.swing.JFrame {
 
         jLabelObservaciones.setText("Observaciones");
 
-        textfieldProducName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textfieldProducNameActionPerformed(evt);
-            }
-        });
 
         jButtonOK.setText("Listo");
         jButtonOK.addActionListener(new java.awt.event.ActionListener() {
@@ -111,12 +94,6 @@ public class InterfazCliente extends javax.swing.JFrame {
         precioTotal.setText("Precio Total");
 
         jTextField1.setText("0.00");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
         butonAgregar.setText("Agregar");
         butonAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -257,7 +234,6 @@ public class InterfazCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonAnadirActionPerformed
 
     private void jButtonOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOKActionPerformed
-
         JOptionPane.showMessageDialog(null, "El pedido ha sido agregado");
     }//GEN-LAST:event_jButtonOKActionPerformed
 

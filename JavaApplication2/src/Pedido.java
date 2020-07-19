@@ -1,6 +1,6 @@
-import java.util.ArrayList;
+import java.util.*;
 /**
- * Write a description of class Pedido here.
+ * Write a description of class as here.
  * 
  * @author (your name) 
  * @version (a version number or a date)

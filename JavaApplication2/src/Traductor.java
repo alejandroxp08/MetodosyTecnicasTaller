@@ -12,17 +12,20 @@ public class Traductor{
     public Traductor(){
         mensaje=null;
     }
-    
+
     public void recibirMensaje(){
-         Scanner sc=new Scanner(System.in);
-         mensaje=sc.nextLine();
-         mensajeDividido=mensaje.split(" |\\,");
+        Scanner sc=new Scanner(System.in);
+        mensaje=sc.nextLine();
+        mensajeDividido=mensaje.split(" |\\,");
+        System.out.println("Mensaje traducido");
+        traducirMensaje();
     }
 
-    public void traducirMensaje(){
+    private void traducirMensaje(){
         devolverNombre();
         devolverDireccion();
         devolverSolicitudes();
+        devolverObservaciones();
     }
 
     private void devolverNombre(){
@@ -43,7 +46,7 @@ public class Traductor{
         }
         String linea=mensajeDividido[pos+1];
         int cont=pos+1;
-        while(!linea.equals(",")&&!linea.equals("mi")&&!linea.equals("y")&&!linea.equals("quiero")&&!linea.equals("vivo")&&cont+1<mensajeDividido.length-1){
+        while(!linea.equals(",")&&!linea.equals("mi")&&!linea.equals("y")&&!linea.equals("quiero")&&!linea.equals("vivo")&&cont+1<mensajeDividido.length-1&&!isNumeric(linea)){
             nom=nom+" "+linea;
             cont++;
             linea=mensajeDividido[cont+1];
@@ -73,38 +76,41 @@ public class Traductor{
             cont++;
             linea=mensajeDividido[cont+1];
         }
-        res.setDireccion(direc);
         System.out.println("Direccion: "+ direc);
     }
 
-    private void devolverSolicitudes(){
-        ArrayList<Solicitud> res=new ArrayList<>();
+    public ArrayList<Datos> devolverSolicitudes(){
+        ArrayList <Solicitud> res=new ArrayList<>();
+        ArrayList <Datos> productos=new ArrayList<>();
         Serializacion ser= new Serializacion();
         try {
             ser.abrirentrada();
-            Producto d;
-            int cant=0;
-            do {
+            Datos d;
+            do{
                 d = ser.leer();
-                for(int i=0;i<mensajeDividido.length-1;i++){
-                    String aux=mensajeDividido[i];
-                    if(d.getNom().equals(aux)){
-                        if(isNumeric(mensajeDividido[i+1])){
-                            cant=Integer.parseInt(mensajeDividido[i+1]);
-                        }
-                        else{
-                            cant=Integer.parseInt(mensajeDividido[i-1]);
-                        }
-                        Solicitud soli=new Solicitud(d,cant);
-                        soli.mostrarse();
-                        res.add(soli);
-                    }
-                }
+                productos.add(d);
             } while(d!=null);
             ser.cerrarentrada();
         } catch (IOException e) {
         } catch (ClassNotFoundException e) {
         }
+        return productos;
+    }
+
+    private void devolverObservaciones(){
+        String res="";
+        boolean bb=true;
+        int pos=0;
+        for(int i=0;i<mensajeDividido.length&&bb;i++){
+            String menDivi=mensajeDividido[i];
+            if(menDivi.equals("mediano")||menDivi.equals("grande")||menDivi.equals("pequeño")){
+                res=menDivi+" ";
+                if(!isNumeric(mensajeDividido[i+1])){res=res+mensajeDividido[i+1];}
+                bb=false;
+                pos=i+2;
+            }
+        }
+        System.out.println("Observaciones: "+ res);
     }
 
     private boolean isNumeric(String cadena) {
