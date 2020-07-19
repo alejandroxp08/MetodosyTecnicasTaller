@@ -8,23 +8,23 @@ public class Serializacion {
     private ObjectInputStream entrada;
 
     public Producto leer() throws IOException, ClassNotFoundException {
-        Producto p=null;
+        Producto d=null;
 
         if (entrada!=null) {
             // Lee y convierte al formato requerido
-            p = (Producto) entrada.readObject();
+            d = (Producto) entrada.readObject();
         }
-        return p;
+        return d;
     }
 
     public void abrirsalida() 
     throws IOException {
-        archivosalida = new FileOutputStream("productos1.txt");
+        archivosalida = new FileOutputStream("productos2.txt");
         salida = new ObjectOutputStream(archivosalida);
     }
 
     public void abrirentrada() throws IOException {
-        archivoentrada = new FileInputStream("productos1.txt");
+        archivoentrada = new FileInputStream("productos2.txt");
         entrada = new ObjectInputStream(archivoentrada);
     }
 
@@ -36,13 +36,13 @@ public class Serializacion {
         if (entrada!=null) entrada.close();
     }
 
-    public void escribir (Producto p) throws IOException {
-        if (salida!=null) salida.writeObject(p);
+    public void escribir (Producto d) throws IOException {
+        if (salida!=null) salida.writeObject(d);
     }
 
     public void insertarBD()throws IOException{
         try {
-            //Permite escribir información en el archivo
+           
             Producto dato = new Producto("cafe","nescafe",20,3,generarcodigo());
             Producto dato1 = new Producto("Doritos","frito-lay",10,3,generarcodigo());
             Producto dato2 = new Producto("helado","delicia",15,1,generarcodigo());
@@ -62,12 +62,12 @@ public class Serializacion {
             escribir(dato7);
             cerrarsalida();
 
-        }catch (IOException e) {
+        } catch (IOException e) {
 
         }
     }
 
-    private int generarcodigo(){ 
+    public int generarcodigo(){ 
         int numero = (int) (Math.random() * 12365) + 1;
         return numero;
     }

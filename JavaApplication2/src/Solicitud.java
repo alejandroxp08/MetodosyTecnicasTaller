@@ -6,7 +6,7 @@
  * @version (a version number or a date)
  */
 public class Solicitud{
-    Producto producto;
+   Producto producto;
     Integer cantidadP;
     public Solicitud(Producto p,Integer cant){
         producto=p;
