@@ -1,33 +1,39 @@
-
+import java.util.*;
 /**
- * Write a description of class Pedido here.
+ * Write a description of class as here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Pedido
-{
-    // instance variables - replace the example below with your own
-    private int x;
+public class Pedido{
+    private String nomCliente;
+    private Direccion direccion;
+    private ArrayList<Solicitud> solicitudes;
+    private String observaciones;
+    public Pedido(){
 
-    /**
-     * Constructor for objects of class Pedido
-     */
-    public Pedido()
-    {
-        // initialise instance variables
-        x = 0;
+    }
+    
+    public Pedido(String nc,Direccion d,String ob){
+        nomCliente=nc;
+        direccion=d;
+        solicitudes=new ArrayList<>();
+        observaciones=ob;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public void setNom(String nc){
+        nomCliente=nc;
+    }
+
+    public void setDireccion(Direccion d){
+        direccion=d;
+    }
+
+    public void setSoli(ArrayList<Solicitud> s){
+        solicitudes=s;
+    }
+
+    public void setObs(String o){
+        observaciones=o;
     }
 }

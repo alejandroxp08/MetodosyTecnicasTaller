@@ -7,4 +7,6 @@ comment2.params=
 comment2.target=int\ getPosX()
 comment3.params=
 comment3.target=int\ getPosY()
-numComments=4
+comment4.params=d
+comment4.target=void\ setDireccion(java.lang.String)
+numComments=5

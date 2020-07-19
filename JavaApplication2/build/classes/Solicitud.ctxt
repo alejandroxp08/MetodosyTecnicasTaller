@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=Solicitud
+comment0.text=\n\ Write\ a\ description\ of\ class\ Solicitud\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=p\ cant
+comment1.target=Solicitud(Producto,\ java.lang.Integer)
+comment2.params=
+comment2.target=void\ mostrarse()
+numComments=3

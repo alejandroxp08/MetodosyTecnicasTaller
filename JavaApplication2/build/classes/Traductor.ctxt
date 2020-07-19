@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=Traductor
+comment0.text=\n\ Write\ a\ description\ of\ class\ Traductor\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=Traductor()
+comment2.params=
+comment2.target=void\ recibirMensaje()
+comment3.params=
+comment3.target=void\ traducirMensaje()
+comment4.params=
+comment4.target=void\ devolverNombre()
+comment5.params=
+comment5.target=void\ devolverDireccion()
+comment6.params=
+comment6.target=java.util.ArrayList\ devolverSolicitudes()
+comment7.params=
+comment7.target=void\ devolverObservaciones()
+comment8.params=cadena
+comment8.target=boolean\ isNumeric(java.lang.String)
+numComments=9

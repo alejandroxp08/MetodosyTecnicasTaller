@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=nombre\ fabricante\ precio\ prioridad\ codigo
+comment0.target=Producto(java.lang.String,\ java.lang.String,\ double,\ int,\ int)
+comment1.params=
+comment1.target=int\ getCodigo()
+numComments=2
