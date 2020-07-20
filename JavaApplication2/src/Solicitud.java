@@ -32,7 +32,7 @@ public class Solicitud{
     }
 
     public void mostrarse(){
-        System.out.println("Codigo de producto: "+producto.getCodigo()+ " Cantidad: "+cantidadP);
+        System.out.println("Nombre Producto: "+producto.getNom()+" Codigo de producto: "+producto.getCodigo()+ " Cantidad: "+cantidadP);
     }
 
 }
