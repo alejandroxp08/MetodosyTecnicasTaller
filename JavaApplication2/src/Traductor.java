@@ -79,7 +79,7 @@ public class Traductor{
         System.out.println("Direccion: "+ direc);
     }
 
-    public void devolverSolicitudes()throws IOException{
+    private void devolverSolicitudes()throws IOException{
         ArrayList <Solicitud> res=new ArrayList<>();
         ObjectInputStream ser = new ObjectInputStream(new FileInputStream("productos2.txt"));
         try {
