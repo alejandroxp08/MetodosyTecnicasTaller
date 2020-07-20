@@ -2,11 +2,13 @@
 import java.io.Serializable;
 
 public class Producto implements Serializable {
-    int prioridad;
-    double precio;
-    String fabricante;
-    String nombre;
-    int codigo;
+    private static final long serialVersionUID= 1L;
+    private int prioridad;
+    private double precio;
+    private String fabricante;
+    private String nombre;
+    private int codigo; 
+    public Producto(){}
 
     public Producto(String nombre, String fabricante, double precio, int prioridad, int codigo) {
         this.nombre = nombre;
@@ -18,5 +20,13 @@ public class Producto implements Serializable {
 
     public int getCodigo(){
         return codigo;
+    }
+
+    public String getNom(){
+        return nombre;
+    }
+
+    public double getPrecio(){
+        return precio;
     }
 }

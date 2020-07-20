@@ -79,23 +79,33 @@ public class Traductor{
         System.out.println("Direccion: "+ direc);
     }
 
-    public ArrayList<Producto> devolverSolicitudes()throws IOException{
+    public void devolverSolicitudes()throws IOException{
         ArrayList <Solicitud> res=new ArrayList<>();
-        ArrayList <Producto> productos=new ArrayList<>();
-        Serializacion ser= new Serializacion();
-        ser.insertarBD();
+        ObjectInputStream ser = new ObjectInputStream(new FileInputStream("productos2.txt"));
         try {
-            ser.abrirentrada();
             Producto d;
+            int cant=0;
             do{
-                d = ser.leer();
-                productos.add(d);
+                d = (Producto)ser.readObject();
+                for(int i=0;i<mensajeDividido.length;i++){
+                    String menDivi=mensajeDividido[i];
+                    if(menDivi.equals(d.getNom())){
+                        if(isNumeric(mensajeDividido[i+1])){
+                            cant=Integer.parseInt(mensajeDividido[i+1]);
+                        }else{
+                            cant=Integer.parseInt(mensajeDividido[i-1]);
+                        }
+                        Solicitud new1=new Solicitud(d,cant);
+                        res.add(new1);
+                    }
+                }
             } while(d!=null);
-            ser.cerrarentrada();
         } catch (IOException e) {
         } catch (ClassNotFoundException e) {
         }
-        return productos;
+        for(int j=0;j<res.size();j++){
+            res.get(j).mostrarse();
+        }
     }
 
     private void devolverObservaciones(){
@@ -106,7 +116,7 @@ public class Traductor{
             String menDivi=mensajeDividido[i];
             if(menDivi.equals("mediano")||menDivi.equals("grande")||menDivi.equals("pequeño")){
                 res=menDivi+" ";
-                if(!isNumeric(mensajeDividido[i+1])){res=res+mensajeDividido[i+1];}
+                if(!isNumeric(mensajeDividido[i+1])&&!mensajeDividido[i+1].equals("vivo")){res=res+mensajeDividido[i+1];}
                 bb=false;
                 pos=i+2;
             }

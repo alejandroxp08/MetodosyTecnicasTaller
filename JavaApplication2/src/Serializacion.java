@@ -39,10 +39,10 @@ public class Serializacion {
     public void escribir (Producto d) throws IOException {
         if (salida!=null) salida.writeObject(d);
     }
-
+    //ejecutar en el caso que el BD se corrompa
     public void insertarBD()throws IOException{
         try {
-           
+
             Producto dato = new Producto("cafe","nescafe",20,3,generarcodigo());
             Producto dato1 = new Producto("Doritos","frito-lay",10,3,generarcodigo());
             Producto dato2 = new Producto("helado","delicia",15,1,generarcodigo());
@@ -68,7 +68,6 @@ public class Serializacion {
     }
 
     public int generarcodigo(){ 
-        int numero = (int) (Math.random() * 12365) + 1;
-        return numero;
+        return (int)(100000 * Math.random());
     }
 }
