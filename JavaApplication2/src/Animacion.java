@@ -15,12 +15,20 @@ public class Animacion extends JPanel
     Repartidor r;
     Direccion d;
     int X_moto;
+<<<<<<< HEAD
     int Y_moto;    
+=======
+    int Y_moto;
+>>>>>>> master
     public Animacion(Repartidor r) throws InterruptedException{
         this.r=r;
         this.d=r.getDireccion();
         try{
+<<<<<<< HEAD
             this.mapa = ImageIO.read(new File("mapa.png"));;
+=======
+            this.mapa = ImageIO.read(new File("C:\\Users\\Boris\\Documents\\Proyecto\\MetodosyTecnicasTaller\\JavaApplication2\\src\\mapa.png"));;
+>>>>>>> master
         }catch(IOException e){
             System.out.println (e.toString());
             System.out.println("No se pudo encontrar el archivo " + this.mapa);
@@ -68,7 +76,12 @@ public class Animacion extends JPanel
     public int getPosMotoY(){
         return this.Y_moto;
     }
+<<<<<<< HEAD
        
+=======
+    
+    
+>>>>>>> master
     @Override
     public void paint(Graphics g) {
         super.paint(g);       
@@ -82,5 +95,39 @@ public class Animacion extends JPanel
         g2d.fillOval(r.getPosX(),r.getPosY(), 15, 15);
         
     }
+<<<<<<< HEAD
     
+=======
+        
+    /*public static void mostrarMapa() throws InterruptedException {
+        JFrame frame = new JFrame("Mapa");    
+        Posicion pr = new Posicion(20,20);
+        Posicion pd = new Posicion(800,500);
+        Direccion d=new Direccion("Ayacucho", pd);
+        Repartidor r=new Repartidor(pr,d);
+        Animacion m = new Animacion(r);       
+        frame.add(m);
+        frame.setSize(1365 , 657);
+        frame.setResizable(false);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        boolean llego=false;
+        while (llego==false) {
+            if(m.getPosMotoX()!=d.getPosX()){
+                m.recorrerX();
+                m.repaint();
+            }
+            if(m.getPosMotoY()!=d.getPosY()){
+                m.recorrerY();
+                m.repaint();
+            }
+            Thread.sleep(50);
+            if(m.getPosMotoX()==d.getPosX() && m.getPosMotoY()==d.getPosY()){
+                llego=true;
+            }
+        }
+
+    }*/
+>>>>>>> master
 }
