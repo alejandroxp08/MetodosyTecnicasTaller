@@ -107,6 +107,35 @@ public class Traductor{
             res.get(j).mostrarse();
         }
     }
+    public ArrayList<Solicitud> devolverSolicitudesLista()throws IOException{
+        ArrayList <Solicitud> res=new ArrayList<>();
+        ObjectInputStream ser = new ObjectInputStream(new FileInputStream("productos2.txt"));
+        try {
+            Producto d;
+            int cant=0;
+            do{
+                d = (Producto)ser.readObject();
+                for(int i=0;i<mensajeDividido.length;i++){
+                    String menDivi=mensajeDividido[i];
+                    if(menDivi.equals(d.getNom())){
+                        if(isNumeric(mensajeDividido[i+1])){
+                            cant=Integer.parseInt(mensajeDividido[i+1]);
+                        }else{
+                            cant=Integer.parseInt(mensajeDividido[i-1]);
+                        }
+                        Solicitud new1=new Solicitud(d,cant);
+                        res.add(new1);
+                    }
+                }
+            } while(d!=null);
+        } catch (IOException e) {
+        } catch (ClassNotFoundException e) {
+        }
+        for(int j=0;j<res.size();j++){
+            res.get(j).mostrarse();
+        }
+        return res;
+    }
 
     private void devolverObservaciones(){
         String res="";

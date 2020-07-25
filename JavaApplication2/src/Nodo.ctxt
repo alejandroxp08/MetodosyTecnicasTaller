@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=ver\ costo
+comment0.target=Nodo(java.lang.String,\ java.lang.String)
+comment1.params=
+comment1.target=java.lang.String\ getVertice()
+comment2.params=
+comment2.target=java.lang.String\ getCosto()
+numComments=3

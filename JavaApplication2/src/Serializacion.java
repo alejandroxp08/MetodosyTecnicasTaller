@@ -6,6 +6,7 @@ public class Serializacion {
     private FileInputStream  archivoentrada;
     private ObjectOutputStream salida;
     private ObjectInputStream entrada;
+    
 
     public Producto leer() throws IOException, ClassNotFoundException {
         Producto d=null;
@@ -39,7 +40,7 @@ public class Serializacion {
     public void escribir (Producto d) throws IOException {
         if (salida!=null) salida.writeObject(d);
     }
-    //ejecutar en el caso que el BD se corrompa
+
     public void insertarBD()throws IOException{
         try {
 
@@ -66,8 +67,9 @@ public class Serializacion {
 
         }
     }
-
+  
     public int generarcodigo(){ 
-        return (int)(100000 * Math.random());
+        int numero = (int) (Math.random() * 12365) + 1;
+        return numero;
     }
 }
