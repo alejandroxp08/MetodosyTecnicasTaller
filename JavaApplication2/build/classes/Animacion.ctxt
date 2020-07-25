@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=Animacion
+comment0.text=\n\n\ @author\ Boris\n
+comment1.params=r\ d
+comment1.target=Animacion(Repartidor,\ Direccion)
+comment10.params=args
+comment10.target=void\ main(java.lang.String[])
+comment2.params=
+comment2.target=void\ recorrerX()
+comment3.params=
+comment3.target=void\ recorrerY()
+comment4.params=
+comment4.target=int\ getPosMotoX()
+comment5.params=
+comment5.target=int\ getPosMotoY()
+comment6.params=
+comment6.target=int\ getPosDireccionX()
+comment7.params=
+comment7.target=int\ getPosDireccionY()
+comment8.params=g
+comment8.target=void\ paint(java.awt.Graphics)
+comment9.params=g
+comment9.target=void\ paintDirection(java.awt.Graphics)
+numComments=11

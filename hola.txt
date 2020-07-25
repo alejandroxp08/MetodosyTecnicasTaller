@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 hola mariana como estas
 hola wey
+=======
+hola mariana como estas 
+hola ale xD
+>>>>>>> 2d4ddfb07423732d132b2dac5a54942ac80577aa

@@ -1,14 +1,8 @@
 #BlueJ class context
-<<<<<<< HEAD
-comment0.target=Direccion
-comment1.params=direccion\ p
-comment1.target=Direccion(java.lang.String,\ Posicion)
-=======
 comment0.params=direccion\ x\ y
 comment0.target=Direccion(java.lang.String,\ int,\ int)
 comment1.params=
 comment1.target=java.lang.String\ getDireccionNombre()
->>>>>>> 7e383b1a900186cedeb10d810449ae689ad127e8
 comment2.params=
 comment2.target=int\ getPosX()
 comment3.params=

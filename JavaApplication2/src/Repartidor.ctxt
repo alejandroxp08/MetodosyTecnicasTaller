@@ -1,4 +1,5 @@
 #BlueJ class context
+<<<<<<< HEAD
 comment0.target=Repartidor
 comment1.params=pos\ dir
 comment1.target=Repartidor(Posicion,\ Direccion)
@@ -15,3 +16,12 @@ comment6.target=Direccion\ getDireccion()
 comment7.params=
 comment7.target=void\ update()
 numComments=8
+=======
+comment0.params=x\ y
+comment0.target=Repartidor(int,\ int)
+comment1.params=
+comment1.target=int\ getPosX()
+comment2.params=
+comment2.target=int\ getPosY()
+numComments=3
+>>>>>>> 7e383b1a900186cedeb10d810449ae689ad127e8
