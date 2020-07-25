@@ -68,8 +68,7 @@ public class Animacion extends JPanel
     public int getPosMotoY(){
         return this.Y_moto;
     }
-    
-    
+       
     @Override
     public void paint(Graphics g) {
         super.paint(g);       
@@ -83,35 +82,5 @@ public class Animacion extends JPanel
         g2d.fillOval(r.getPosX(),r.getPosY(), 15, 15);
         
     }
-        
-    /*public static void mostrarMapa() throws InterruptedException {
-        JFrame frame = new JFrame("Mapa");    
-        Posicion pr = new Posicion(20,20);
-        Posicion pd = new Posicion(800,500);
-        Direccion d=new Direccion("Ayacucho", pd);
-        Repartidor r=new Repartidor(pr,d);
-        Animacion m = new Animacion(r);       
-        frame.add(m);
-        frame.setSize(1365 , 657);
-        frame.setResizable(false);
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        boolean llego=false;
-        while (llego==false) {
-            if(m.getPosMotoX()!=d.getPosX()){
-                m.recorrerX();
-                m.repaint();
-            }
-            if(m.getPosMotoY()!=d.getPosY()){
-                m.recorrerY();
-                m.repaint();
-            }
-            Thread.sleep(50);
-            if(m.getPosMotoX()==d.getPosX() && m.getPosMotoY()==d.getPosY()){
-                llego=true;
-            }
-        }
-
-    }*/
+    
 }
