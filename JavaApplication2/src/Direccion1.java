@@ -1,21 +1,20 @@
 
-public class Direccion
-{
+public class Direccion1 {
     String direccion;
     int posX;
     int posY;
-    Posicion p;
-    public Direccion(String direccion,Posicion p){
+    public Direccion1(String direccion,int x,int y){
         this.direccion=direccion;
-        this.p=p;
+        this.posX=x;
+        this.posY=y;
     }
     public String getDireccionNombre(){
         return this.direccion;
     }
     public int getPosX(){
-        return this.p.getX();
+        return this.posX;
     }
     public int getPosY(){
-        return this.p.getY();
+        return this.posY;
     }
 }
