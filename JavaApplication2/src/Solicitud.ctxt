@@ -1,0 +1,24 @@
+#BlueJ class context
+<<<<<<< HEAD
+comment0.params=
+comment0.target=Solicitud()
+comment1.params=p\ cant
+comment1.target=Solicitud(Producto,\ java.lang.Integer)
+comment2.params=p
+comment2.target=void\ setProduc(Producto)
+comment3.params=cant
+comment3.target=void\ setCant(int)
+comment4.params=
+comment4.target=Producto\ getProduc()
+comment5.params=
+comment5.target=int\ getCant()
+comment6.params=
+comment6.target=void\ mostrarse()
+numComments=7
+=======
+comment0.target=Solicitud
+comment0.text=\n\ Write\ a\ description\ of\ class\ Solicitud\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=p\ cant
+comment1.target=Solicitud(Producto,\ java.lang.Integer)
+numComments=2
+>>>>>>> d443f19a60539d7d409bd0a8dfff93b8c3efa006

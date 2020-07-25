@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 public class Direccion
 {
     String direccion;
@@ -17,5 +18,35 @@ public class Direccion
     }
     public int getPosY(){
         return this.p.getY();
+=======
+/**
+ *
+ * @author Boris
+ */
+public class Direccion {
+    String direccion;
+    int posX;
+    int posY;
+    public Direccion(String direccion,int x,int y){
+        this.direccion=direccion;
+        this.posX=x;
+        this.posY=y;
+    }
+
+    public String getDireccionNombre(){
+        return this.direccion;
+    }
+
+    public int getPosX(){
+        return this.posX;
+    }
+
+    public int getPosY(){
+        return this.posY;
+    }
+
+    public void setDireccion(String d){
+        direccion=d;
+>>>>>>> 1db7ec70a9985865026bbfab9b16ec49edb4687f
     }
 }
