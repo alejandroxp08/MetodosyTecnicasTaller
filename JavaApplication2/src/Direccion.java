@@ -1,29 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author Boris
- */
-public class Direccion {
+public class Direccion
+{
     String direccion;
     int posX;
     int posY;
-    public Direccion(String direccion,int x,int y){
+    Posicion p;
+    public Direccion(String direccion,Posicion p){
         this.direccion=direccion;
-        this.posX=x;
-        this.posY=y;
+        this.p=p;
     }
     public String getDireccionNombre(){
         return this.direccion;
     }
     public int getPosX(){
-        return this.posX;
+        return this.p.getX();
     }
     public int getPosY(){
-        return this.posY;
+        return this.p.getY();
     }
 }
