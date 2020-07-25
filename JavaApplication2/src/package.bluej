@@ -5,6 +5,7 @@ dependency1.type=UsesDependency
 dependency10.from=Serializacion
 dependency10.to=Producto
 dependency10.type=UsesDependency
+<<<<<<< HEAD
 dependency11.from=InterfazCliente
 dependency11.to=Pedido
 dependency11.type=UsesDependency
@@ -16,6 +17,19 @@ dependency13.to=Producto
 dependency13.type=UsesDependency
 dependency14.from=InterfazCliente
 dependency14.to=Solicitud
+=======
+dependency11.from=Solicitud
+dependency11.to=Producto
+dependency11.type=UsesDependency
+dependency12.from=Traductor
+dependency12.to=Direccion
+dependency12.type=UsesDependency
+dependency13.from=Traductor
+dependency13.to=Solicitud
+dependency13.type=UsesDependency
+dependency14.from=Traductor
+dependency14.to=Producto
+>>>>>>> d443f19a60539d7d409bd0a8dfff93b8c3efa006
 dependency14.type=UsesDependency
 dependency15.from=Pedido
 dependency15.to=Traductor
@@ -50,6 +64,7 @@ dependency8.type=UsesDependency
 dependency9.from=Traductor
 dependency9.to=Producto
 dependency9.type=UsesDependency
+<<<<<<< HEAD
 objectbench.height=76
 objectbench.width=1260
 package.editor.height=523
@@ -58,6 +73,24 @@ package.editor.x=-8
 package.editor.y=-8
 package.numDependencies=17
 package.numTargets=12
+=======
+editor.fx.0.height=991
+editor.fx.0.width=1280
+editor.fx.0.x=0
+editor.fx.0.y=0
+objectbench.height=130
+objectbench.width=1250
+package.divider.horizontal=0.6
+package.divider.vertical=0.7866043613707165
+package.editor.height=498
+package.editor.width=1104
+package.editor.x=0
+package.editor.y=221
+package.frame.height=734
+package.frame.width=1280
+package.numDependencies=14
+package.numTargets=9
+>>>>>>> d443f19a60539d7d409bd0a8dfff93b8c3efa006
 package.showExtends=true
 package.showUses=true
 project.charset=windows-1252

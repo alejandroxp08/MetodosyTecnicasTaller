@@ -12,7 +12,11 @@ comment4.target=void\ devolverDireccion()
 comment5.params=
 comment5.target=void\ devolverSolicitudes()
 comment6.params=
+<<<<<<< HEAD
 comment6.target=java.util.ArrayList\ devolverSolicitudesLista()
+=======
+comment6.target=java.util.ArrayList\ devolverSolicitudes()
+>>>>>>> d443f19a60539d7d409bd0a8dfff93b8c3efa006
 comment7.params=
 comment7.target=void\ devolverObservaciones()
 comment8.params=cadena
