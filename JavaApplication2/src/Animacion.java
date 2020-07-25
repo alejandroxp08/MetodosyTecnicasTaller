@@ -15,12 +15,12 @@ public class Animacion extends JPanel
     Repartidor r;
     Direccion d;
     int X_moto;
-    int Y_moto;
+    int Y_moto;    
     public Animacion(Repartidor r) throws InterruptedException{
         this.r=r;
         this.d=r.getDireccion();
         try{
-            this.mapa = ImageIO.read(new File("C:\\Users\\Boris\\Documents\\Proyecto\\MetodosyTecnicasTaller\\JavaApplication2\\src\\mapa.png"));;
+            this.mapa = ImageIO.read(new File("mapa.png"));;
         }catch(IOException e){
             System.out.println (e.toString());
             System.out.println("No se pudo encontrar el archivo " + this.mapa);
