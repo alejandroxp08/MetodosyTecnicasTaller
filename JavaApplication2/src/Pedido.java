@@ -59,19 +59,19 @@ public class Pedido{
         return res;
     }
 
-    private void retornarSolicitudes()throws IOException{
-        Traductor t=new Traductor();
-        try{
-            ArrayList<Solicitud>solicitudes=t.devolverSolicitudesLista();
+    private void retornarSolicitudes(){
+        InterfazCliente  t=new InterfazCliente();
+        
+            ArrayList<Solicitud>solicitudes=t.getSolicitudes();
             for(Solicitud s: solicitudes){
 
                 añadirColaPrioridad (s);
 
             }
-        } catch (IOException e) {
+        } 
 
-        }
-    }
+        
+    
 
     private void añadirColaPrioridad ( Solicitud s){
         ArrayList<Integer> prioridades=new ArrayList();
@@ -95,18 +95,14 @@ public class Pedido{
 
     }
 
-    public void mostarLista()throws IOException{
+    public void mostarLista(){
 
-        try{
             retornarSolicitudes();
             for(int i=0;i<colas.length;i++){
                 Queue<Solicitud> cola=colas[i];
                 imprimir(cola);
             }
-        }  catch (IOException e) {
-
-        }
-
+       
     }
 
     public static void imprimir( Queue<Solicitud> cola){
