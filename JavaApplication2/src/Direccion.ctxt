@@ -5,19 +5,7 @@ comment1.target=Direccion(java.lang.String,\ Posicion)
 comment2.params=
 comment2.target=java.lang.String\ getDireccionNombre()
 comment3.params=
-<<<<<<< HEAD
 comment3.target=int\ getPosX()
 comment4.params=
 comment4.target=int\ getPosY()
-=======
-<<<<<<< HEAD
-comment3.target=int\ getPosX()
-comment4.params=
-comment4.target=int\ getPosY()
-=======
-comment3.target=int\ getPosY()
-comment4.params=d
-comment4.target=void\ setDireccion(java.lang.String)
->>>>>>> 1db7ec70a9985865026bbfab9b16ec49edb4687f
->>>>>>> master
 numComments=5

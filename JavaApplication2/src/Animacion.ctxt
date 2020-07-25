@@ -1,20 +1,7 @@
 #BlueJ class context
 comment0.target=Animacion
-<<<<<<< HEAD
 comment1.params=r
 comment1.target=Animacion(Repartidor)
-=======
-<<<<<<< HEAD
-comment1.params=r
-comment1.target=Animacion(Repartidor)
-=======
-comment0.text=\n\n\ @author\ Boris\n
-comment1.params=r\ d
-comment1.target=Animacion(Repartidor,\ Direccion)
-comment10.params=args
-comment10.target=void\ main(java.lang.String[])
->>>>>>> 1db7ec70a9985865026bbfab9b16ec49edb4687f
->>>>>>> master
 comment2.params=
 comment2.target=void\ recorrerX()
 comment3.params=
@@ -23,24 +10,6 @@ comment4.params=
 comment4.target=int\ getPosMotoX()
 comment5.params=
 comment5.target=int\ getPosMotoY()
-<<<<<<< HEAD
 comment6.params=g
 comment6.target=void\ paint(java.awt.Graphics)
 numComments=7
-=======
-<<<<<<< HEAD
-comment6.params=g
-comment6.target=void\ paint(java.awt.Graphics)
-numComments=7
-=======
-comment6.params=
-comment6.target=int\ getPosDireccionX()
-comment7.params=
-comment7.target=int\ getPosDireccionY()
-comment8.params=g
-comment8.target=void\ paint(java.awt.Graphics)
-comment9.params=g
-comment9.target=void\ paintDirection(java.awt.Graphics)
-numComments=11
->>>>>>> 1db7ec70a9985865026bbfab9b16ec49edb4687f
->>>>>>> master
