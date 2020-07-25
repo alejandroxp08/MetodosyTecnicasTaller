@@ -13,7 +13,7 @@ import java.util.*;
  * @author alejandroxp08
  */
 public class InterfazCliente extends javax.swing.JFrame {
-    private ArrayList<Pedido> pedidos;
+    private static ArrayList<Pedido> pedidos;
     private Pedido pedidoG;
     /**
      * Creates new form InterfazCliente
@@ -22,6 +22,14 @@ public class InterfazCliente extends javax.swing.JFrame {
         initComponents();
         pedidos=new ArrayList();
         pedidoG=new Pedido();
+    }
+
+    public ArrayList<Solicitud> getSolictudes(){
+        ArrayList <Solicitud> soli=new ArrayList<>();
+        for(int i =0;i<pedidos.size();i++){
+            soli.add(pedidos.get(i).getSoli().get(i));
+        }
+        return soli;
     }
 
     /**
@@ -67,13 +75,12 @@ public class InterfazCliente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-
         buttonAnadir.setText("OK");
         buttonAnadir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAnadirActionPerformed(evt);
-            }
-        });
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    buttonAnadirActionPerformed(evt);
+                }
+            });
 
         jLabelNombre.setText("Nombre del Cliente");
 
@@ -81,14 +88,12 @@ public class InterfazCliente extends javax.swing.JFrame {
 
         jLabelObservaciones.setText("Observaciones");
 
-
-
         butonAgregar.setText("Agregar");
         butonAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonAgregarActionPerformed(evt);
-            }
-        });
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    butonAgregarActionPerformed(evt);
+                }
+            });
 
         jLabel1.setText("introduzca codigo de producto");
 
@@ -183,7 +188,6 @@ public class InterfazCliente extends javax.swing.JFrame {
         pedidoG.setObs(observaciones);
         JOptionPane.showMessageDialog(null, "El pedido ha sido agregado,"+"el precio Total es: "+pedidoG.precioTotal()+"Bs");
     }//GEN-LAST:event_buttonAnadirActionPerformed
-
 
     private void butonAgregarActionPerformed (java.awt.event.ActionEvent evt){//GEN-FIRST:event_butonAgregarActionPerformed
         String codigo=textfieldProducName.getText();
