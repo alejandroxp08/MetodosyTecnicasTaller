@@ -24,7 +24,7 @@ public class InterfazCliente extends javax.swing.JFrame {
         pedidoG=new Pedido();
     }
 
-    public ArrayList<Solicitud> getSolictudes(){
+    public ArrayList<Solicitud> getSolicitudes(){
         ArrayList <Solicitud> soli=new ArrayList<>();
         for(int i =0;i<pedidos.size();i++){
             soli.add(pedidos.get(i).getSoli().get(i));

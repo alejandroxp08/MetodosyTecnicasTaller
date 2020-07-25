@@ -29,4 +29,8 @@ public class Producto implements Serializable {
     public double getPrecio(){
         return precio;
     }
+
+    public int getPrioridad(){
+        return prioridad;
+    }
 }
