@@ -1,5 +1,5 @@
 import java.io.*;
-
+import java.util.ArrayList;
 public class Serializacion {
 
     private FileOutputStream  archivosalida,archivosalida2;

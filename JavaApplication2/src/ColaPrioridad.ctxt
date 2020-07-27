@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=ColaPrioridad
+comment0.text=\n\ Write\ a\ description\ of\ class\ ColaPrioridad\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=ColaPrioridad()
+comment2.params=
+comment2.target=void\ retornarSolicitudes()
+comment3.params=s
+comment3.target=void\ a\u00F1adirColaPrioridad(Solicitud)
+comment4.params=
+comment4.target=java.util.Queue[]\ getColas()
+comment5.params=
+comment5.target=void\ mostrarLista()
+comment6.params=cola
+comment6.target=void\ imprimir(java.util.Queue)
+numComments=7

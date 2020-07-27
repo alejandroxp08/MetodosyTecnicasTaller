@@ -24,14 +24,6 @@ public class InterfazCliente extends javax.swing.JFrame {
         pedidoG=new Pedido();
     }
 
-    public ArrayList<Solicitud> getSolicitudes(){
-        ArrayList <Solicitud> soli=new ArrayList<>();
-        for(int i =0;i<pedidos.size();i++){
-            soli.add(pedidos.get(i).getSoli().get(i));
-        }
-        return soli;
-    }
-
     /**
     * This method is called from within the constructor to initialize the form.
     * WARNING: Do NOT modify this code. The content of this method is always

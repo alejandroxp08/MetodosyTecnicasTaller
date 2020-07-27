@@ -1,9 +1,9 @@
-
+import java.io.*;
 /**
  *
  * @author Boris
  */
-public class Direccion {
+public class Direccion implements Serializable {
     String direccion;
     int posX;
     int posY;

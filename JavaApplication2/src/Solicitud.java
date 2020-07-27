@@ -1,11 +1,12 @@
-
+import java.util.*;
+import java.io.*;
 /**
  * Write a description of class Solicitud here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Solicitud{
+public class Solicitud implements Serializable{
     Producto producto;
     Integer cantidadP;
     public Solicitud(){}
