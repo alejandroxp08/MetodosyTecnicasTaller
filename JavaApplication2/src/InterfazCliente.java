@@ -13,7 +13,7 @@ import java.util.*;
  * @author alejandroxp08
  */
 public class InterfazCliente extends javax.swing.JFrame {
-    private static ArrayList<Pedido> pedidos;
+    private ArrayList<Pedido> pedidos;
     private Pedido pedidoG;
     /**
      * Creates new form InterfazCliente
@@ -186,6 +186,13 @@ public class InterfazCliente extends javax.swing.JFrame {
         pedidoG.setDireccion(direccion1);
         String observaciones=textfieldObservaciones.getText();
         pedidoG.setObs(observaciones);
+        Serializacion ser=new Serializacion();
+        try{
+            ser.abrirsalida2();
+            ser.escribir2(pedidoG);
+            ser.cerrarsalida2();
+        }catch(IOException e){
+        }
         JOptionPane.showMessageDialog(null, "El pedido ha sido agregado,"+"el precio Total es: "+pedidoG.precioTotal()+"Bs");
     }//GEN-LAST:event_buttonAnadirActionPerformed
 
@@ -227,11 +234,7 @@ public class InterfazCliente extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public  void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -248,9 +251,7 @@ public class InterfazCliente extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(InterfazCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run() {
                     new InterfazCliente().setVisible(true);

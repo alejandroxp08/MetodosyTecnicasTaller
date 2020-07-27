@@ -59,25 +59,29 @@ public class Pedido{
         return res;
     }
 
-    private void retornarSolicitudes(){
-        InterfazCliente  t=new InterfazCliente();
-        
-            ArrayList<Solicitud>solicitudes=t.getSolicitudes();
-            for(Solicitud s: solicitudes){
-
-                añadirColaPrioridad (s);
-
+    private void retornarSolicitudes () throws IOException{
+        ArrayList<Solicitud>solicitudes=new ArrayList<>();
+        ObjectInputStream ser = new ObjectInputStream(new FileInputStream("pedidos.txt"));
+        try {
+            Pedido d;
+            int cant=0;
+            do{
+                d = (Pedido)ser.readObject();
+                solicitudes=d.getSoli();
             }
-        } 
-
-        
-    
+            while(d!=null);
+        } catch (IOException e) {
+        } catch (ClassNotFoundException e) {
+        }finally{
+            File fichero=new File("pedidos.txt");
+            fichero.delete();
+        }
+    } 
 
     private void añadirColaPrioridad ( Solicitud s){
         ArrayList<Integer> prioridades=new ArrayList();
         Producto p=s.getProduc();
         int prioridad= p.getPrioridad();
-
         if(prioridades.contains(prioridad)){
             Queue<Solicitud> cola=colas[prioridad-1];
             cola.add(s);
@@ -86,23 +90,19 @@ public class Pedido{
             colas[prioridad-1]=cola1;
             cola1.add(s);
             prioridades.add(prioridad);
-
         }
     }
 
     public Queue<Solicitud>[] getColas(){
         return colas;
-
     }
 
-    public void mostarLista(){
-
-            retornarSolicitudes();
-            for(int i=0;i<colas.length;i++){
-                Queue<Solicitud> cola=colas[i];
-                imprimir(cola);
-            }
-       
+    public void mostrarLista() throws IOException{
+        retornarSolicitudes();
+        for(int i=0;i<colas.length;i++){
+            Queue<Solicitud> cola=colas[i];
+            imprimir(cola);
+        }
     }
 
     public static void imprimir( Queue<Solicitud> cola){
