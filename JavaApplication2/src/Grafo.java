@@ -65,16 +65,15 @@ public class Grafo{
         grafo.put(v, new ArrayList<Nodo>());
     }
 
-    public ArrayList<ArrayList<Nodo>> caminos(Nodo vo, Nodo vd){
-        String verOr=vo.getVertice();
-        String verDest=vd.getVertice();
+    public ArrayList<ArrayList<Nodo>> caminos(String vo, String vd){
+        
         ArrayList<String> camino = new ArrayList<>();
-        camino.add(verOr);
-        ArrayList<Nodo> vecinos = grafo.get(verOr);
+        camino.add(vo);
+        ArrayList<Nodo> vecinos = grafo.get(vo);
         for(Nodo n : vecinos){
             String act = n.getVertice();
-            ArrayList<Nodo> copia = (ArrayList<Nodo>)camino.clone();
-            copia.add(n);
+            ArrayList<String> copia = (ArrayList<String>)camino.clone();
+            copia.add();
             caminos(act, verDest, copia, caminos);
         }
         return caminos;
