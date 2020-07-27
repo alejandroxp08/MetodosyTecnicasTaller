@@ -6,7 +6,7 @@ import java.io.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Pedido{
+public class Pedido implements Serializable{
     private String nomCliente;
     private Direccion direccion;
     private ArrayList<Solicitud> solicitudes;
@@ -60,7 +60,7 @@ public class Pedido{
     }
 
     private void retornarSolicitudes () throws IOException{
-        ArrayList<Solicitud>solicitudes=new ArrayList<>();
+
         ObjectInputStream ser = new ObjectInputStream(new FileInputStream("pedidos.txt"));
         try {
             Pedido d;
@@ -77,6 +77,20 @@ public class Pedido{
             fichero.delete();
         }
     } 
+
+    public void llenar()throws IOException {
+        try {
+            retornarSolicitudes();
+            for(Solicitud s:solicitudes){
+                añadirColaPrioridad (s);
+
+            }
+
+        }
+        catch (IOException e) {
+        }
+        }
+    
 
     private void añadirColaPrioridad ( Solicitud s){
         ArrayList<Integer> prioridades=new ArrayList();
@@ -98,7 +112,7 @@ public class Pedido{
     }
 
     public void mostrarLista() throws IOException{
-        retornarSolicitudes();
+
         for(int i=0;i<colas.length;i++){
             Queue<Solicitud> cola=colas[i];
             imprimir(cola);
