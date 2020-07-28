@@ -25,6 +25,10 @@ public class Pedido implements Serializable{
         precioTotal=0;
     }
 
+    public Direccion getDireccion(){
+        return direccion;
+    }
+
     public void setNom(String nc){
         nomCliente=nc;
     }
@@ -56,7 +60,6 @@ public class Pedido implements Serializable{
         }
         return res;
     }
-
 
 
 }
