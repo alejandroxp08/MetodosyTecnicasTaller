@@ -1,4 +1,5 @@
-import java.util.*;
+
+  import java.util.*;
 import java.io.*;
 /**
  * Write a description of class ColaPrioridad here.
@@ -7,90 +8,79 @@ import java.io.*;
  * @version (a version number or a date)
  */
 public class ColaPrioridad{
-    private Queue<Pedido>[]colas;
-    private ArrayList<Pedido> pedidos;
+    private Queue<Solicitud>[]colas;
+    private ArrayList<Solicitud> solicitudes;
     private  int numPrioridades =3;
 
     public ColaPrioridad(){
-        //solicitudes=new ArrayList<>();
+        solicitudes=new ArrayList<>();
         colas=new PriorityQueue[numPrioridades]; 
     }
 
-    private void retornarPedidos () throws IOException{
-        ArrayList<Pedido> res=new ArrayList<>();
+    private void retornarSolicitudes () throws IOException{
         ObjectInputStream ser = new ObjectInputStream(new FileInputStream("pedidos.txt"));
         Pedido d=new Pedido();
         try {
             do{
                 d = (Pedido)ser.readObject();
-<<<<<<< HEAD
-                Pedido p=d;
-                pedidos.add(p);
-
-=======
-                res.add(d);
->>>>>>> 268bf21b23c39494f71f2dfd321e90bf6a588084
+                solicitudes=d.getSoli();
             }
             while(d!=null);
         } catch (IOException e) {
         } catch (ClassNotFoundException e) {
         }
-        pedidos=res;
     } 
 
-    private void añadirColaPrioridad ( Pedido p){
+    private void añadirColaPrioridad ( Solicitud s){
         ArrayList<Integer> prioridades=new ArrayList();
-        ArrayList<Solicitud> solicitudes=p.getSoli();
-        for(Solicitud s:solicitudes){
-            Producto pro=s.getProduc();
-            int prioridad= pro.getPrioridad();
-            if(prioridades.contains(prioridad)){
-                Queue<Pedido> cola=colas[prioridad-1];
-                cola.add(p);
-            }else{
-                Queue<Pedido> cola1 = new PriorityQueue<Pedido>(); 
+        Producto p=s.getProduc();
+        int prioridad= p.getPrioridad();
+        if(prioridades.contains(prioridad)){
+            Queue<Solicitud> cola=colas[prioridad-1];
+            cola.add(s);
+        }else{
+            Queue<Solicitud> cola1 = new PriorityQueue<Solicitud>(); 
 
-                colas[prioridad-1]=cola1;
-                if(p instanceof Pedido){
-                    cola1.add(p);
-                }
-                prioridades.add(prioridad);
-            }
+            colas[prioridad-1]=cola1;
+            cola1.add(s);
+            prioridades.add(prioridad);
         }
     }
 
-    private Queue<Pedido>[] getColas(){
+    private Queue<Solicitud>[] getColas(){
         return colas;
     }
 
+    
+
     public   void main() throws IOException{
-        llenar();
+         llenar();
 
         for(int i=0;i<colas.length;i++){
-            Queue<Pedido> cola=colas[i];
+            Queue<Solicitud> cola=colas[i];
             if(cola!=null){
                 imprimir(cola);
             }
         }
     }
 
-    private void imprimir( Queue<Pedido> cola){
-        for(Pedido pedi : cola) {
-            ArrayList<Solicitud> solicitudes=pedi.getSoli();
-            for(Solicitud s:solicitudes){
-
-                Producto p=s.getProduc();
-                System.out.println(p.getNom()+ " --> " + s.getCant() + "  -- [ " + p.getPrioridad() + "]");
-                System.out.println(pedi.getNomCliente()+ " --> " + pedi.getDireccion().getCalleP() );
-            }
+    private void imprimir( Queue<Solicitud> cola){
+        for(Solicitud s : cola) {
+            Producto p=s.getProduc();
+            System.out.println(p.getNom()+ " --> " + s.getCant() + "  -- [ " + p.getPrioridad() + "]");
         }
     }
 
     private   void llenar()throws IOException {
-        retornarPedidos();
-        for(Pedido p:pedidos){
-            añadirColaPrioridad (p);
+        try {
+            retornarSolicitudes();
+            for(Solicitud s:solicitudes){
+                añadirColaPrioridad (s);
 
+            }
+
+        }
+        catch (IOException e) {
         }
     }
 }

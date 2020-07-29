@@ -42,3 +42,7 @@ public class Repartidor implements Observador
     
 
 }
+
+    
+
+

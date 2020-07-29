@@ -101,8 +101,10 @@ public class DOMParser {
 
     }
 
-    public ArrayList<String> principal()throws IOException{
+    public ArrayList<String> principal1()throws IOException{
+        agregarVert();
         ArrayList<String>vertices=new ArrayList<>();
+        
         for(String key :grafo.keySet()){
             vertices.add(key);
         }
@@ -111,15 +113,32 @@ public class DOMParser {
         retornarDirecciones ();
         String calleP=direccion.getCalleP();
         String calleI=direccion.getCalleI();
-        String verticeCom=encontararVertComun(calleP,calleI,0, vertice,vertices);
+        String verticeCom=encontrarVertComun(calleP,calleI,0, vertice,vertices);
         int nc=direccion.getNumCasa();
-        agregarVert();
         ArrayList<String>camino= EncontrarVertices(verticeCom,calleP,nc);
         return camino;
 
     }
+    public String principal()throws IOException{
+        agregarVert();
+        ArrayList<String>vertices=new ArrayList<>();
+        
+        for(String key :grafo.keySet()){
+            vertices.add(key);
+        }
+
+        String vertice="";
+        retornarDirecciones ();
+        String calleP=direccion.getCalleP();
+        String calleI=direccion.getCalleI();
+        String verticeCom=encontrarVertComun(calleP,calleI,0, vertice,vertices);
+        int nc=direccion.getNumCasa();
+        ArrayList<String>camino= EncontrarVertices(verticeCom,calleP,nc);
+        return verticeCom;
+
+    }
     
-    public String encontararVertComun(String calleP,String calleI,int pos,String vertice, ArrayList<String>vertices){// devolver vertice final{
+    public String encontrarVertComun(String calleP,String calleI,int pos,String vertice, ArrayList<String>vertices){// devolver vertice final{
         //Direccion d=p.getDireccion();
         //String calleP=d.getCalleP();
         //String calleI=d.getCalleI();
@@ -139,7 +158,7 @@ public class DOMParser {
                             if(pos==0){
                                 vertice=vertices.get(i);
                                 pos=pos+1;
-                                vertice=encontararVertComun( calleI,calleP,pos,vertice,vertices);
+                                vertice=encontrarVertComun( calleI,calleP,pos,vertice,vertices);
 
                             }else{
                                 if(pos==1){
@@ -199,7 +218,7 @@ public class DOMParser {
 
             }
         }
-         tts.speak("nc");
+         tts.speak(""+nc);
         //if (nodoNombre.equals("costo"){
 
         //  String costo=elemento.getChildNodes().item(0).getNodeValue());

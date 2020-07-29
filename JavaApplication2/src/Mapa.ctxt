@@ -1,15 +1,14 @@
 #BlueJ class context
-comment0.target=Mapa
-comment1.params=r
-comment1.target=Mapa(Repartidor)
+comment0.params=r
+comment0.target=Mapa(Repartidor)
+comment1.params=o
+comment1.target=void\ addObservador(Observador)
 comment2.params=o
-comment2.target=void\ addObservador(Observador)
-comment3.params=o
-comment3.target=void\ deleteObservador(Observador)
+comment2.target=void\ deleteObservador(Observador)
+comment3.params=
+comment3.target=int\ countObservadores()
 comment4.params=
-comment4.target=int\ countObservadores()
+comment4.target=void\ mostrarMapa()
 comment5.params=
-comment5.target=void\ mostrarMapa()
-comment6.params=
-comment6.target=void\ notificar()
-numComments=7
+comment5.target=void\ notificar()
+numComments=6

@@ -10,7 +10,7 @@ public class PosicionesReferencia
         posRef.put("J",new Posicion(605,80));
         posRef.put("N",new Posicion(700,70));
         posRef.put("A1",new Posicion(805,50));
-        posRef.put("E5",new Posicion(660,370));
+        posRef.put("O",new Posicion(660,370));
         posRef.put("K",new Posicion(625,170));
         posRef.put("A1",new Posicion(805,50));
         posRef.put("T",new Posicion(830,145));
@@ -19,7 +19,7 @@ public class PosicionesReferencia
         posRef.put("Z",new Posicion(880,435));
         posRef.put("Q",new Posicion(780,445));
         posRef.put("P",new Posicion(760,355));
-        posRef.put("O",new Posicion(740,255));
+        //posRef.put("O",new Posicion(740,255));
         posRef.put("Ñ",new Posicion(720,155));
         posRef.put("G",new Posicion(507,93));
         posRef.put("D",new Posicion(407,110));
