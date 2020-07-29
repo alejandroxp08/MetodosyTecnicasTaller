@@ -10,22 +10,19 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.HashMap;
 public class Animacion extends JPanel
 {
     BufferedImage mapa;
     Repartidor r;
     Direccion d;
     int X_moto;
-<<<<<<< HEAD
     int Y_moto;    
+    ArrayList<String> camino;
 
-=======
-    int Y_moto;
-    ArrayList<String>camino;
->>>>>>> 43e95b28c2d4c8b58ec14fbc227d6b6c5b1c0351
     public Animacion(Repartidor r) throws InterruptedException{
         this.r=r;
-        this.d=r.getDireccion();
+
         try{
             this.mapa = ImageIO.read(new File("mapa.png"));;          
         }catch(IOException e){
@@ -41,23 +38,47 @@ public class Animacion extends JPanel
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);       
         boolean llego=false;
-        while (llego==false) {
-            if(this.X_moto!=d.getPosX()){
-                recorrerX();
-                repaint();
-            }
-            if(this.Y_moto!=d.getPosY()){
-                recorrerY();
-                repaint();
-            }
-            Thread.sleep(50);
-            if(this.X_moto==d.getPosX() && this.Y_moto==d.getPosY()){
-                llego=true;
-            }
+        /*while (llego==false) {
+        if(this.X_moto!=d.getPosX()){
+        recorrerX();
+        repaint();
         }
+        if(this.Y_moto!=d.getPosY()){
+        recorrerY();
+        repaint();
+        }
+        Thread.sleep(50);
+        if(this.X_moto==d.getPosX() && this.Y_moto==d.getPosY()){
+        llego=true;
+        }
+        }*/
+
         camino=new ArrayList<String>();
+        camino = getCamino();
+        PosicionesReferencia posRef =new PosicionesReferencia();
+        HashMap<String,Posicion> ref=posRef.getPosicionesReferencia();
+ 
+        for(int i=0;i<camino.size();i++){
+            while(llego==false){
+                if(ref.containsKey(camino.get(i))){
+                    if(this.X_moto!=ref.get(camino.get(i)).getX()){
+                        recorrerX();
+                        repaint();
+                    }
+                    if(this.Y_moto!=ref.get(camino.get(i)).getY()){
+                        recorrerY();
+                        repaint();
+                    }
+                    Thread.sleep(50);
+                    if(this.X_moto==ref.get(camino.get(i)).getX() && this.Y_moto==ref.get(camino.get(i)).getY()){
+                        llego=true;
+                    }
+                }
+            }
+            llego=false;
+        }
     }
-    
+
     public void recorrerX(){
         this.X_moto=X_moto+ 1;
         r.setPosX(this.X_moto);
@@ -67,7 +88,7 @@ public class Animacion extends JPanel
         this.Y_moto=Y_moto+ 1;
         r.setPosY(this.Y_moto);
     }
-    
+
     public int getPosMotoX(){
         return this.X_moto;
     }
@@ -87,11 +108,9 @@ public class Animacion extends JPanel
         g2d.fillOval(d.getPosX(),d.getPosY(), 30, 30);
         g2d.setColor(Color.black);
         g2d.fillOval(r.getPosX(),r.getPosY(), 15, 15);
-        
+
     }
-<<<<<<< HEAD
-            
-=======
+
     public ArrayList<String> getCamino(){
         DOMParser p=new DOMParser();
         p.agregarVert();
@@ -101,36 +120,36 @@ public class Animacion extends JPanel
         
         return camino;
     }
-        
+
     /*public static void mostrarMapa() throws InterruptedException {
-        JFrame frame = new JFrame("Mapa");    
-        Posicion pr = new Posicion(20,20);
-        Posicion pd = new Posicion(800,500);
-        Direccion d=new Direccion("Ayacucho", pd);
-        Repartidor r=new Repartidor(pr,d);
-        Animacion m = new Animacion(r);       
-        frame.add(m);
-        frame.setSize(1365 , 657);
-        frame.setResizable(false);
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        boolean llego=false;
-        while (llego==false) {
-            if(m.getPosMotoX()!=d.getPosX()){
-                m.recorrerX();
-                m.repaint();
-            }
-            if(m.getPosMotoY()!=d.getPosY()){
-                m.recorrerY();
-                m.repaint();
-            }
-            Thread.sleep(50);
-            if(m.getPosMotoX()==d.getPosX() && m.getPosMotoY()==d.getPosY()){
-                llego=true;
-            }
-        }
+    JFrame frame = new JFrame("Mapa");    
+    Posicion pr = new Posicion(20,20);
+    Posicion pd = new Posicion(800,500);
+    Direccion d=new Direccion("Ayacucho", pd);
+    Repartidor r=new Repartidor(pr,d);
+    Animacion m = new Animacion(r);       
+    frame.add(m);
+    frame.setSize(1365 , 657);
+    frame.setResizable(false);
+    frame.setVisible(true);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    boolean llego=false;
+    while (llego==false) {
+    if(m.getPosMotoX()!=d.getPosX()){
+    m.recorrerX();
+    m.repaint();
+    }
+    if(m.getPosMotoY()!=d.getPosY()){
+    m.recorrerY();
+    m.repaint();
+    }
+    Thread.sleep(50);
+    if(m.getPosMotoX()==d.getPosX() && m.getPosMotoY()==d.getPosY()){
+    llego=true;
+    }
+    }
 
     }*/
->>>>>>> 43e95b28c2d4c8b58ec14fbc227d6b6c5b1c0351
+
 }

@@ -4,9 +4,9 @@ public class Repartidor implements Observador
     int posX;
     int posY;
     Direccion dir;
-    public Repartidor(Posicion pos,Direccion dir){
-        this.posX=pos.getX();
-        this.posY=pos.getY();
+    public Repartidor(){
+        this.posX=650;
+        this.posY=280;
         this.dir=dir;
     }
 

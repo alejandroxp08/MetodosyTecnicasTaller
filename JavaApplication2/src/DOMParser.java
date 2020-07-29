@@ -30,13 +30,9 @@ public class DOMParser {
     }
 
     public  void agregarVert(){
-<<<<<<< HEAD:JavaApplication2/src/DOMParserOraciones.java
+
         Grafo g = new Grafo(true);
         HashMap<String, ArrayList<Nodo>> grafo = g.getGrafo();
-=======
-
-        HashMap<String, ArrayList<Nodo>>grafo =g.getGrafo();
->>>>>>> 43e95b28c2d4c8b58ec14fbc227d6b6c5b1c0351:JavaApplication2/src/DOMParser.java
 
         main();
         NodeList lista = doc.getElementsByTagName("vertice");

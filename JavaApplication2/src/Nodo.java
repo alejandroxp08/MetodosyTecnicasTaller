@@ -17,5 +17,7 @@ public class Nodo{
     public String getCosto(){
         return costo;
     }
-
-    //public int getPosX(){return x;}
+    
+    
+}
+    
