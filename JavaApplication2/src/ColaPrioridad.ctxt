@@ -2,9 +2,9 @@
 comment0.params=
 comment0.target=ColaPrioridad()
 comment1.params=
-comment1.target=void\ retornarSolicitudes()
-comment2.params=s
-comment2.target=void\ a\u00F1adirColaPrioridad(Solicitud)
+comment1.target=void\ retornarPedidos()
+comment2.params=p
+comment2.target=void\ a\u00F1adirColaPrioridad(Pedido)
 comment3.params=
 comment3.target=java.util.Queue[]\ getColas()
 comment4.params=

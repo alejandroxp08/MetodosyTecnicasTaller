@@ -10,19 +10,32 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.HashMap;
 public class Animacion extends JPanel
 {
     BufferedImage mapa;
     Repartidor r;
     Direccion d;
     int X_moto;
-    int Y_moto;
-    ArrayList<String>camino;
+    int Y_moto;    
+    ArrayList<String> camino;
+    
+    HashMap<String,Posicion> ref;
     public Animacion(Repartidor r) throws InterruptedException{
+        
+        
         this.r=r;
-        this.d=r.getDireccion();
         try{
-            this.mapa = ImageIO.read(new File("C:\\Users\\Boris\\Documents\\Proyecto\\MetodosyTecnicasTaller\\JavaApplication2\\src\\mapa.png"));;
+              getCamino();
+            
+        }catch(IOException e){
+            
+        }
+
+        try{
+           
+            this.mapa = ImageIO.read(new File("mapa.png"));    
+           
         }catch(IOException e){
             System.out.println (e.toString());
             System.out.println("No se pudo encontrar el archivo " + this.mapa);
@@ -36,23 +49,49 @@ public class Animacion extends JPanel
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);       
         boolean llego=false;
-        while (llego==false) {
-            if(this.X_moto!=d.getPosX()){
-                recorrerX();
-                repaint();
-            }
-            if(this.Y_moto!=d.getPosY()){
-                recorrerY();
-                repaint();
-            }
-            Thread.sleep(50);
-            if(this.X_moto==d.getPosX() && this.Y_moto==d.getPosY()){
-                llego=true;
-            }
+        /*while (llego==false) {
+        if(this.X_moto!=d.getPosX()){
+        recorrerX();
+        repaint();
         }
-        camino=new ArrayList<String>();
+        if(this.Y_moto!=d.getPosY()){
+        recorrerY();
+        repaint();
+        }
+        Thread.sleep(50);
+        if(this.X_moto==d.getPosX() && this.Y_moto==d.getPosY()){
+        llego=true;
+        }
+        }*/
+       
+        
+        
+        
+        
+        PosicionesReferencia posRef =new PosicionesReferencia();
+        ref=posRef.getPosicionesReferencia();
+ 
+        for(int i=0;i<camino.size();i++){
+            while(llego==false){
+                if(ref.containsKey(camino.get(i))){
+                    if(this.X_moto!=ref.get(camino.get(i)).getX()){
+                        recorrerX();
+                        repaint();
+                    }
+                    if(this.Y_moto!=ref.get(camino.get(i)).getY()){
+                        recorrerY();
+                        repaint();
+                    }
+                    Thread.sleep(50);
+                    if(this.X_moto==ref.get(camino.get(i)).getX() && this.Y_moto==ref.get(camino.get(i)).getY()){
+                        llego=true;
+                    }
+                }
+            }
+            llego=false;
+        }
     }
-    
+
     public void recorrerX(){
         this.X_moto=X_moto+ 1;
         r.setPosX(this.X_moto);
@@ -62,7 +101,7 @@ public class Animacion extends JPanel
         this.Y_moto=Y_moto+ 1;
         r.setPosY(this.Y_moto);
     }
-    
+
     public int getPosMotoX(){
         return this.X_moto;
     }
@@ -70,8 +109,7 @@ public class Animacion extends JPanel
     public int getPosMotoY(){
         return this.Y_moto;
     }
-    
-    
+
     @Override
     public void paint(Graphics g) {
         super.paint(g);       
@@ -79,20 +117,19 @@ public class Animacion extends JPanel
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
             RenderingHints.VALUE_ANTIALIAS_ON);
-        g2d.setColor(Color.red);
-        g2d.fillOval(d.getPosX(),d.getPosY(), 30, 30);
+        for(int i=0;i<camino.size();i++){
+            g2d.setColor(Color.red);
+            g2d.fillOval(ref.get(camino.get(i)).getX(),ref.get(camino.get(i)).getY(), 15, 15);
+        }
         g2d.setColor(Color.black);
         g2d.fillOval(r.getPosX(),r.getPosY(), 15, 15);
-        
+
     }
-    public ArrayList<String> getCamino(){
-        DOMParser p=new DOMParser();
-        p.agregarVert();
-        Grafo g=new Grafo(true);
-        p.getGrafo();
-        ArrayList<String>camino=g.caminoMenorTam("M","D");
-        
-        return camino;
+
+    public void getCamino() throws IOException {
+        DOMParser p=new DOMParser();               
+        camino=p.principal();        
+       
     }
         
     /*public static void mostrarMapa() throws InterruptedException {

@@ -12,5 +12,5 @@ comment4.target=int\ getPosMotoY()
 comment5.params=g
 comment5.target=void\ paint(java.awt.Graphics)
 comment6.params=
-comment6.target=java.util.ArrayList\ getCamino()
+comment6.target=void\ getCamino()
 numComments=7

@@ -18,6 +18,7 @@ public class DOMParser {
     Document doc;
     Grafo g = new Grafo(true);
     Direccion direccion;
+    HashMap<String, ArrayList<Nodo>>grafo;
     public Grafo getGrafo(){
         return g;
     }
@@ -38,7 +39,7 @@ public class DOMParser {
 
     public  void agregarVert() throws IOException{
 
-        HashMap<String, ArrayList<Nodo>>grafo =g.getGrafo();
+        grafo =g.getGrafo();
 
         main();
         NodeList lista = doc.getElementsByTagName("vertice");
@@ -52,7 +53,7 @@ public class DOMParser {
 
             } 
         }
-        agregarArisVert(grafo);
+        agregarArisVert();
 
     }
 
@@ -70,7 +71,7 @@ public class DOMParser {
         }
 
     } 
-    public   void agregarArisVert(HashMap<String, ArrayList<Nodo>>grafo)throws IOException{
+    public   void agregarArisVert()throws IOException{
         main();
         NodeList lista = doc.getElementsByTagName("*");
 
@@ -96,31 +97,30 @@ public class DOMParser {
             }
             System.out.println(vo+vd+costo);
         }
-        main2(grafo);
+    
 
     }
 
-    public void main2( HashMap<String, ArrayList<Nodo>>grafo) throws IOException {
-        try {
+    public void main2( ) throws IOException {
+       
             ArrayList<String>vertices=new ArrayList<>();
             for(String key :grafo.keySet()){
                 vertices.add(key);
             }
 
             String vertice="";
-            retornarDirecciones ();
-            String calleP=direccion.getCalleP();
-            String calleI=direccion.getCalleI();
-            String verticeCom=encontararVertComun(calleP,calleI,0,grafo, vertice,vertices);
-            EncontrarVertices(verticeCom,grafo);
+            //retornarDirecciones ();
+            //String calleP=direccion.getCalleP();
+            //String calleI=direccion.getCalleI();
+            String verticeCom=encontararVertComun("ECUADOR","HAMIRAYA",0, vertice,vertices);
+           
 
-        } catch (IOException e){
-        } 
+        
     }
         
 
     
-    public String encontararVertComun(String calleP,String calleI,int pos,  HashMap<String, ArrayList<Nodo>>grafo,String vertice, ArrayList<String>vertices){// devolver vertice final{
+    public String encontararVertComun(String calleP,String calleI,int pos,String vertice, ArrayList<String>vertices){// devolver vertice final{
         //Direccion d=p.getDireccion();
         //String calleP=d.getCalleP();
         //String calleI=d.getCalleI();
@@ -140,7 +140,7 @@ public class DOMParser {
                             if(pos==0){
                                 vertice=vertices.get(i);
                                 pos=pos+1;
-                                vertice=encontararVertComun( calleI,calleP,pos,grafo,vertice,vertices);
+                                vertice=encontararVertComun( calleI,calleP,pos,vertice,vertices);
 
                             }else{
                                 if(pos==1){
@@ -163,8 +163,8 @@ public class DOMParser {
     //if(calleIn.equals(calleI)){
     /// verticeCom=nodo.getVertice();
     //}
-    public void  EncontrarVertices(String verticeCom,HashMap<String, ArrayList<Nodo>>grafo){
-        Nodo vertO=new Nodo("C","HEROINAS");
+    public  ArrayList<String>  EncontrarVertices(String verticeCom){
+        Nodo vertO=new Nodo("M","HEROINAS");
         Nodo vertD=new Nodo(verticeCom,"JUNIN");
 
         TextoAudio tts=new TextoAudio();
@@ -208,6 +208,14 @@ public class DOMParser {
 
         // }
         //}
+        return caminoCorto;
+    }
+    public ArrayList<String> principal()throws IOException{
+        agregarVert();
+         main2();
+        ArrayList<String>camino= EncontrarVertices("D");
+        return camino;
+    
+   
     }
 }
-

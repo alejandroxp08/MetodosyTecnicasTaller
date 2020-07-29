@@ -8,21 +8,21 @@ import java.io.*;
  */
 public class ColaPrioridad{
     private Queue<Solicitud>[]colas;
-    private ArrayList<Solicitud> solicitudes;
+    private ArrayList<Pedido> pedidos;
     private  int numPrioridades =3;
 
     public ColaPrioridad(){
-        solicitudes=new ArrayList<>();
+        //solicitudes=new ArrayList<>();
         colas=new PriorityQueue[numPrioridades]; 
     }
 
-    private void retornarSolicitudes () throws IOException{
+    private void retornarPedidos () throws IOException{
         ObjectInputStream ser = new ObjectInputStream(new FileInputStream("pedidos.txt"));
         Pedido d=new Pedido();
         try {
             do{
                 d = (Pedido)ser.readObject();
-                solicitudes=d.getSoli();
+
             }
             while(d!=null);
         } catch (IOException e) {
@@ -30,19 +30,22 @@ public class ColaPrioridad{
         }
     } 
 
-    private void añadirColaPrioridad ( Solicitud s){
+    private void añadirColaPrioridad ( Pedido p){
         ArrayList<Integer> prioridades=new ArrayList();
-        Producto p=s.getProduc();
-        int prioridad= p.getPrioridad();
-        if(prioridades.contains(prioridad)){
-            Queue<Solicitud> cola=colas[prioridad-1];
-            cola.add(s);
-        }else{
-            Queue<Solicitud> cola1 = new PriorityQueue<Solicitud>(); 
+        ArrayList<Solicitud> solicitudes=p.getSoli();
+        for(Solicitud s:solicitudes){
+            Producto pro=s.getProduc();
+            int prioridad= pro.getPrioridad();
+            if(prioridades.contains(prioridad)){
+                Queue<Solicitud> cola=colas[prioridad-1];
+                cola.add(s);
+            }else{
+                Queue<Solicitud> cola1 = new PriorityQueue<Solicitud>(); 
 
-            colas[prioridad-1]=cola1;
-            cola1.add(s);
-            prioridades.add(prioridad);
+                colas[prioridad-1]=cola1;
+                cola1.add(s);
+                prioridades.add(prioridad);
+            }
         }
     }
 
@@ -50,10 +53,9 @@ public class ColaPrioridad{
         return colas;
     }
 
-    
 
     public   void main() throws IOException{
-         llenar();
+        llenar();
 
         for(int i=0;i<colas.length;i++){
             Queue<Solicitud> cola=colas[i];
@@ -72,9 +74,9 @@ public class ColaPrioridad{
 
     private   void llenar()throws IOException {
         try {
-            retornarSolicitudes();
-            for(Solicitud s:solicitudes){
-                añadirColaPrioridad (s);
+            retornarPedidos();
+            for(Pedido p:pedidos){
+                añadirColaPrioridad (p);
 
             }
 
