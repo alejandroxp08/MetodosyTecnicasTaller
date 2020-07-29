@@ -11,16 +11,18 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
+import java.io.*;
 
 public class DOMParser {
 
     Document doc;
     Grafo g = new Grafo(true);
+    Direccion direccion;
     public Grafo getGrafo(){
         return g;
     }
 
-    public  void main()  {
+    public  void main() throws IOException {
         try
         {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -34,7 +36,7 @@ public class DOMParser {
         }
     }
 
-    public  void agregarVert(){
+    public  void agregarVert() throws IOException{
 
         HashMap<String, ArrayList<Nodo>>grafo =g.getGrafo();
 
@@ -53,19 +55,22 @@ public class DOMParser {
         agregarArisVert(grafo);
 
     }
-    //private void retornarSolicitudes () {
-    //   ObjectInputStream ser = new ObjectInputStream(new FileInputStream("pedidos.txt"));
-    // Pedido d=new Pedido();
 
-    //    do{
-    //       d = (Pedido)ser.readObject();
-    //       solicitudes=d.getSoli();
-    //   }
-    //   while(d!=null);
+    private void retornarDirecciones ()throws IOException {
+        ObjectInputStream ser = new ObjectInputStream(new FileInputStream("pedidos.txt"));
+        Pedido d=new Pedido();
+        try {
+            do{
+                d = (Pedido)ser.readObject();
+                direccion=d.getDireccion();
+            }
+            while(d!=null);
+        } catch (IOException e) {
+        } catch (ClassNotFoundException e) {
+        }
 
-    //} 
-
-    public   void agregarArisVert(HashMap<String, ArrayList<Nodo>>grafo){
+    } 
+    public   void agregarArisVert(HashMap<String, ArrayList<Nodo>>grafo)throws IOException{
         main();
         NodeList lista = doc.getElementsByTagName("*");
 
@@ -95,20 +100,26 @@ public class DOMParser {
 
     }
 
-    public void main2( HashMap<String, ArrayList<Nodo>>grafo){
+    public void main2( HashMap<String, ArrayList<Nodo>>grafo) throws IOException {
+        try {
+            ArrayList<String>vertices=new ArrayList<>();
+            for(String key :grafo.keySet()){
+                vertices.add(key);
+            }
 
-        ArrayList<String>vertices=new ArrayList<>();
-        for(String key :grafo.keySet()){
-            vertices.add(key);
-        }
+            String vertice="";
+            retornarDirecciones ();
+            String calleP=direccion.getCalleP();
+            String calleI=direccion.getCalleI();
+            String verticeCom=encontararVertComun(calleP,calleI,0,grafo, vertice,vertices);
+            EncontrarVertices(verticeCom,grafo);
 
-        Direccion di=new Direccion("ECUADOR","HAMIRAYA");
-        Pedido p=new Pedido("",di,"");
-        String vertice="";
-        String verticeCom=encontararVertComun("ECUADOR","HAMIRAYA",0,grafo, vertice,vertices);
-        EncontrarVertices(verticeCom,grafo);
+        } catch (IOException e){
+        } 
     }
+        
 
+    
     public String encontararVertComun(String calleP,String calleI,int pos,  HashMap<String, ArrayList<Nodo>>grafo,String vertice, ArrayList<String>vertices){// devolver vertice final{
         //Direccion d=p.getDireccion();
         //String calleP=d.getCalleP();
