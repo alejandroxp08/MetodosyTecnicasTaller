@@ -74,6 +74,7 @@ public class InterfazCliente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
+
         buttonAnadir.setText("OK");
         buttonAnadir.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,12 +88,23 @@ public class InterfazCliente extends javax.swing.JFrame {
 
         jLabelObservaciones.setText("Observaciones");
 
+  
+        butonAgregar.setText("Agregar");
+        butonAgregar.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    butonAgregarActionPerformed(evt);
+                }
+            });
+
+
         jLabel1.setText("introduzca codigo de producto");
 
         jLabelCantidad.setText("Cantidad");
 
         jLabelCalleSecundaria.setText("Calle Secundaria");
+
         jLabelCalleSecundaria1.setText("Numero de Casa");
+
         jLabelReporte.setText("Generar Reporte");
         jLabelReporte.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {

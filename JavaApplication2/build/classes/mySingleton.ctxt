@@ -1,10 +1,8 @@
 #BlueJ class context
-comment0.target=mySingleton
-comment0.text=\n\ Write\ a\ description\ of\ class\ mySingleton\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.params=
+comment0.target=mySingleton\ getInstance()
 comment1.params=
-comment1.target=mySingleton\ getInstance()
+comment1.target=mySingleton()
 comment2.params=
-comment2.target=mySingleton()
-comment3.params=
-comment3.target=java.io.ObjectInputStream\ getObject()
-numComments=4
+comment2.target=java.io.ObjectInputStream\ getObject()
+numComments=3
