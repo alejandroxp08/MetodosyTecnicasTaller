@@ -1,4 +1,5 @@
 #BlueJ class context
+<<<<<<< HEAD
 comment0.target=Grafo
 comment1.params=dir
 comment1.target=Grafo(boolean)
@@ -8,6 +9,18 @@ comment11.params=
 comment11.target=java.util.ArrayList\ nombrarCalles()
 comment12.params=
 comment12.target=void\ getTam\u00F1os()
+=======
+comment0.params=dir
+comment0.target=Grafo(boolean)
+comment1.params=
+comment1.target=java.util.HashMap\ getGrafo()
+comment10.params=vo\ vd
+comment10.target=java.util.ArrayList\ caminoMenorTam(java.lang.String,\ java.lang.String)
+comment11.params=
+comment11.target=void\ getTam\u00F1os()
+comment12.params=vo\ vd
+comment12.target=void\ getTam\u00F1os(java.lang.String,\ java.lang.String)
+>>>>>>> f4839526f09d19f3cf6d4318aa6cf4d0e04fc708
 comment13.params=
 comment13.target=int\ getTamMin()
 comment2.params=orig\ dest\ costo
@@ -23,7 +36,11 @@ comment6.target=void\ eliminarVertice(java.lang.String)
 comment7.params=v
 comment7.target=void\ agregarVertice(java.lang.String)
 comment8.params=vo\ vd
+<<<<<<< HEAD
 comment8.target=java.util.ArrayList\ caminos(Nodo,\ Nodo)
+=======
+comment8.target=void\ caminos(java.lang.String,\ java.lang.String)
+>>>>>>> f4839526f09d19f3cf6d4318aa6cf4d0e04fc708
 comment9.params=vo\ vd\ camino\ res
 comment9.target=void\ caminos(java.lang.String,\ java.lang.String,\ java.util.ArrayList,\ java.util.ArrayList)
 numComments=14

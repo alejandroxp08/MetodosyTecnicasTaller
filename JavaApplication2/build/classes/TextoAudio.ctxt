@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=TextoAudio
+comment1.params=
+comment1.target=TextoAudio()
+comment2.params=inputText
+comment2.target=void\ speak(java.lang.String)
+numComments=3

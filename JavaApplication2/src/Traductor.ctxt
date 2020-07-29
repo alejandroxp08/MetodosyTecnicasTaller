@@ -10,15 +10,7 @@ comment3.target=void\ devolverNombre()
 comment4.params=
 comment4.target=void\ devolverDireccion()
 comment5.params=
-comment5.target=void\ devolverSolicitudes()
-comment6.params=
-<<<<<<< HEAD
-comment6.target=java.util.ArrayList\ devolverSolicitudesLista()
-=======
-comment6.target=java.util.ArrayList\ devolverSolicitudes()
->>>>>>> d443f19a60539d7d409bd0a8dfff93b8c3efa006
-comment7.params=
-comment7.target=void\ devolverObservaciones()
-comment8.params=cadena
-comment8.target=boolean\ isNumeric(java.lang.String)
-numComments=9
+comment5.target=void\ devolverObservaciones()
+comment6.params=cadena
+comment6.target=boolean\ isNumeric(java.lang.String)
+numComments=7

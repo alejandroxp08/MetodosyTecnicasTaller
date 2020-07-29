@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=
+comment0.target=ColaPrioridad()
+comment1.params=
+comment1.target=void\ retornarSolicitudes()
+comment2.params=s
+comment2.target=void\ a\u00F1adirColaPrioridad(Solicitud)
+comment3.params=
+comment3.target=java.util.Queue[]\ getColas()
+comment4.params=
+comment4.target=void\ main()
+comment5.params=cola
+comment5.target=void\ imprimir(java.util.Queue)
+comment6.params=
+comment6.target=void\ llenar()
+numComments=7

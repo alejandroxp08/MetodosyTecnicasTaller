@@ -1,12 +1,15 @@
 import java.io.*;
-
+import java.util.ArrayList;
 public class Serializacion {
 
-    private FileOutputStream  archivosalida;
+    private FileOutputStream  archivosalida,archivosalida2;
     private FileInputStream  archivoentrada;
-    private ObjectOutputStream salida;
+    private ObjectOutputStream salida,salida2;
     private ObjectInputStream entrada;
-    
+
+    public Serializacion(){
+
+    }
 
     public Producto leer() throws IOException, ClassNotFoundException {
         Producto d=null;
@@ -16,6 +19,12 @@ public class Serializacion {
             d = (Producto) entrada.readObject();
         }
         return d;
+    }
+
+    public void abrirsalida2() 
+    throws IOException {
+        archivosalida2 = new FileOutputStream("pedidos.txt");
+        salida2 = new ObjectOutputStream(archivosalida2);
     }
 
     public void abrirsalida() 
@@ -33,12 +42,20 @@ public class Serializacion {
         if (salida!=null) salida.close();
     }
 
+    public void cerrarsalida2() throws IOException {
+        if (salida2!=null) salida2.close();
+    }
+
     public void cerrarentrada() throws IOException {
         if (entrada!=null) entrada.close();
     }
 
     public void escribir (Producto d) throws IOException {
         if (salida!=null) salida.writeObject(d);
+    }
+
+    public void escribir2(Pedido d) throws IOException {
+        if (salida2!=null) salida2.writeObject(d);
     }
 
     public void insertarBD()throws IOException{
@@ -67,7 +84,7 @@ public class Serializacion {
 
         }
     }
-  
+
     public int generarcodigo(){ 
         int numero = (int) (Math.random() * 12365) + 1;
         return numero;
