@@ -18,4 +18,4 @@ public class Nodo{
         return costo;
     }
 
-}
+    //public int getPosX(){return x;}

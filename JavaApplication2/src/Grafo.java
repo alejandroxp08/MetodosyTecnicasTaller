@@ -13,11 +13,11 @@ public class Grafo{
         caminos = new ArrayList<>();
         tamaños=new ArrayList<>();
     }
-
+    
     public HashMap<String, ArrayList<Nodo>> getGrafo(){
         return grafo;
     }
-
+    
     public void agregarArista(String orig, String dest, String costo){
         crearArista(orig,dest, costo);
         if(!dirigido){

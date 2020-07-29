@@ -1,9 +1,4 @@
-/**
- * 
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+
 import java.util.*;
 import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
@@ -32,7 +27,7 @@ public class DOMParserOraciones {
 
     public  void agregarVert(){
         Grafo g = new Grafo(true);
-        HashMap<String, ArrayList<Nodo>>grafo =g.getGrafo();
+        HashMap<String, ArrayList<Nodo>> grafo = g.getGrafo();
 
         main();
         NodeList lista = doc.getElementsByTagName("vertice");
