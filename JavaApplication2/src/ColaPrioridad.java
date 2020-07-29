@@ -17,18 +17,19 @@ public class ColaPrioridad{
     }
 
     private void retornarPedidos () throws IOException{
+        ArrayList<Pedido> res=new ArrayList<>();
         ObjectInputStream ser = new ObjectInputStream(new FileInputStream("pedidos.txt"));
         Pedido d=new Pedido();
         try {
             do{
                 d = (Pedido)ser.readObject();
-                pedidos.add(d);
-
+                res.add(d);
             }
             while(d!=null);
         } catch (IOException e) {
         } catch (ClassNotFoundException e) {
         }
+        pedidos=res;
     } 
 
     private void añadirColaPrioridad ( Pedido p){
@@ -44,7 +45,9 @@ public class ColaPrioridad{
                 Queue<Pedido> cola1 = new PriorityQueue<Pedido>(); 
 
                 colas[prioridad-1]=cola1;
-                cola1.add(p);
+                if(p instanceof Pedido){
+                    cola1.add(p);
+                }
                 prioridades.add(prioridad);
             }
         }
@@ -53,7 +56,6 @@ public class ColaPrioridad{
     private Queue<Pedido>[] getColas(){
         return colas;
     }
-
 
     public   void main() throws IOException{
         llenar();
@@ -68,26 +70,21 @@ public class ColaPrioridad{
 
     private void imprimir( Queue<Pedido> cola){
         for(Pedido pedi : cola) {
-              ArrayList<Solicitud> solicitudes=pedi.getSoli();
-              for(Solicitud s:solicitudes){
-            
-            Producto p=s.getProduc();
-            System.out.println(p.getNom()+ " --> " + s.getCant() + "  -- [ " + p.getPrioridad() + "]");
-            System.out.println(pedi.getNomCliente()+ " --> " + pedi.getDireccion().getCalleP() );
+            ArrayList<Solicitud> solicitudes=pedi.getSoli();
+            for(Solicitud s:solicitudes){
+
+                Producto p=s.getProduc();
+                System.out.println(p.getNom()+ " --> " + s.getCant() + "  -- [ " + p.getPrioridad() + "]");
+                System.out.println(pedi.getNomCliente()+ " --> " + pedi.getDireccion().getCalleP() );
+            }
         }
     }
-}
 
     private   void llenar()throws IOException {
-        try {
-            retornarPedidos();
-            for(Pedido p:pedidos){
-                añadirColaPrioridad (p);
+        retornarPedidos();
+        for(Pedido p:pedidos){
+            añadirColaPrioridad (p);
 
-            }
-
-        }
-        catch (IOException e) {
         }
     }
 }

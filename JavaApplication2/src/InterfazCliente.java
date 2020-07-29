@@ -52,6 +52,10 @@ public class InterfazCliente extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         textfieldCantidad = new javax.swing.JTextField();
         jLabelCantidad = new javax.swing.JLabel();
+        textfieldCalleS = new javax.swing.JTextField();
+        textfieldCasa = new javax.swing.JTextField();
+        jLabelCalleSecundaria = new javax.swing.JLabel();
+        jLabelCalleSecundaria1 = new javax.swing.JLabel();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -78,7 +82,7 @@ public class InterfazCliente extends javax.swing.JFrame {
 
         jLabelNombre.setText("Nombre del Cliente");
 
-        jLabelCliente.setText("Direccion del Cliente");
+        jLabelCliente.setText("Direccion del Cliente-Calle Principal");
 
         jLabelObservaciones.setText("Observaciones");
 
@@ -92,6 +96,10 @@ public class InterfazCliente extends javax.swing.JFrame {
         jLabel1.setText("introduzca codigo de producto");
 
         jLabelCantidad.setText("Cantidad");
+
+        jLabelCalleSecundaria.setText("Calle Secundaria");
+
+        jLabelCalleSecundaria1.setText("Numero de Casa");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,14 +134,20 @@ public class InterfazCliente extends javax.swing.JFrame {
                         .addComponent(textfieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(34, 34, 34)
-                        .addComponent(jLabelObservaciones))
+                        .addComponent(jLabelCalleSecundaria))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(34, 34, 34)
-                        .addComponent(textfieldObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(247, 247, 247)
-                        .addComponent(buttonAnadir, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(47, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textfieldCalleS, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelCalleSecundaria1)
+                            .addComponent(textfieldCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelObservaciones)
+                            .addComponent(textfieldObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(84, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(buttonAnadir, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,15 +172,23 @@ public class InterfazCliente extends javax.swing.JFrame {
                 .addComponent(textfieldCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(jLabelCliente)
-                .addGap(13, 13, 13)
-                .addComponent(textfieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jLabelObservaciones)
-                .addGap(6, 6, 6)
-                .addComponent(textfieldObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(textfieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelCalleSecundaria)
+                .addGap(18, 18, 18)
+                .addComponent(textfieldCalleS, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelCalleSecundaria1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textfieldCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelObservaciones)
+                .addGap(18, 18, 18)
+                .addComponent(textfieldObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(buttonAnadir)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addGap(22, 22, 22))
         );
 
         pack();
@@ -176,7 +198,10 @@ public class InterfazCliente extends javax.swing.JFrame {
         String nombre =textfieldCliente1.getText();
         pedidoG.setNom(nombre);
         String direccion=textfieldDireccion.getText();
-        Direccion direccion1=new Direccion(direccion,0,0);
+        String calleSecundaria=textfieldCalleS.getText();
+        String numeroCasa=textfieldCasa.getText();
+        int casa=Integer.parseInt(numeroCasa);
+        Direccion direccion1=new Direccion(direccion,calleSecundaria,null,casa);
         pedidoG.setDireccion(direccion1);
         String observaciones=textfieldObservaciones.getText();
         pedidoG.setObs(observaciones);
@@ -203,6 +228,18 @@ public class InterfazCliente extends javax.swing.JFrame {
         pedidoG.aumen(s);
         pedidos.add(pedidoG);
     }//GEN-LAST:event_butonAgregarActionPerformed
+
+    private void textfieldCalleSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfieldCalleSActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfieldCalleSActionPerformed
+
+    private void textfieldCasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfieldCasaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfieldCasaActionPerformed
+
+    private void textfieldObservacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfieldObservacionesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfieldObservacionesActionPerformed
 
     private Producto agregarSoli(String codigo) throws IOException{
         Producto res=new Producto();
@@ -262,13 +299,17 @@ public class InterfazCliente extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelCalleSecundaria;
+    private javax.swing.JLabel jLabelCalleSecundaria1;
     private javax.swing.JLabel jLabelCantidad;
     private javax.swing.JLabel jLabelCliente;
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JLabel jLabelObservaciones;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JTextField textfieldCalleS;
     private javax.swing.JTextField textfieldCantidad;
+    private javax.swing.JTextField textfieldCasa;
     private javax.swing.JTextField textfieldCliente1;
     private javax.swing.JTextField textfieldDireccion;
     private javax.swing.JTextField textfieldObservaciones;
