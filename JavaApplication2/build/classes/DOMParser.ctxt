@@ -9,14 +9,6 @@ comment3.target=void\ agregarVert()
 comment4.params=
 comment4.target=void\ retornarDirecciones()
 comment5.params=
-<<<<<<< HEAD
-comment5.target=java.util.ArrayList\ principal()
-comment6.params=calleP\ calleI\ pos\ vertice\ vertices
-comment6.target=java.lang.String\ encontararVertComun(java.lang.String,\ java.lang.String,\ int,\ java.lang.String,\ java.util.ArrayList)
-comment7.params=verticeCom\ calleP\ nc
-comment7.target=java.util.ArrayList\ EncontrarVertices(java.lang.String,\ java.lang.String,\ int)
-numComments=8
-=======
 comment5.target=void\ agregarArisVert()
 comment6.params=
 comment6.target=void\ main2()
@@ -27,4 +19,3 @@ comment8.target=java.util.ArrayList\ EncontrarVertices(java.lang.String)
 comment9.params=
 comment9.target=java.util.ArrayList\ principal()
 numComments=10
->>>>>>> 268bf21b23c39494f71f2dfd321e90bf6a588084

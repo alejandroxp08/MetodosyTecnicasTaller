@@ -3,15 +3,31 @@ comment0.params=
 comment0.target=InterfazCliente()
 comment0.text=\r\n\ Creates\ new\ form\ InterfazCliente\r\n
 comment1.params=
+<<<<<<< HEAD
 comment1.target=void\ initComponents()
 comment1.text=\r\n\ This\ method\ is\ called\ from\ within\ the\ constructor\ to\ initialize\ the\ form.\r\n\ WARNING\:\ Do\ NOT\ modify\ this\ code.\ The\ content\ of\ this\ method\ is\ always\r\n\ regenerated\ by\ the\ Form\ Editor.\r\n
 comment2.params=evt
 comment2.target=void\ actionPerformed(java.awt.event.ActionEvent)
+=======
+comment1.target=InterfazCliente()
+comment1.text=\n\ Creates\ new\ form\ InterfazCliente\n
+comment10.params=codigo
+comment10.target=Producto\ agregarSoli(java.lang.String)
+comment11.params=args
+comment11.target=void\ main(java.lang.String[])
+comment11.text=\n\ @param\ args\ the\ command\ line\ arguments\n
+comment12.params=
+comment12.target=void\ run()
+comment2.params=
+comment2.target=void\ initComponents()
+comment2.text=\n\ This\ method\ is\ called\ from\ within\ the\ constructor\ to\ initialize\ the\ form.\n\ WARNING\:\ Do\ NOT\ modify\ this\ code.\ The\ content\ of\ this\ method\ is\ always\n\ regenerated\ by\ the\ Form\ Editor.\n
+>>>>>>> 268bf21b23c39494f71f2dfd321e90bf6a588084
 comment3.params=evt
 comment3.target=void\ actionPerformed(java.awt.event.ActionEvent)
 comment4.params=evt
 comment4.target=void\ buttonAnadirActionPerformed(java.awt.event.ActionEvent)
 comment5.params=evt
+<<<<<<< HEAD
 comment5.target=void\ butonAgregarActionPerformed(java.awt.event.ActionEvent)
 comment6.params=codigo
 comment6.target=Producto\ agregarSoli(java.lang.String)
@@ -21,3 +37,15 @@ comment7.text=\r\n\ @param\ args\ the\ command\ line\ arguments\r\n
 comment8.params=
 comment8.target=void\ run()
 numComments=9
+=======
+comment5.target=void\ buttonAnadirActionPerformed(java.awt.event.ActionEvent)
+comment6.params=evt
+comment6.target=void\ butonAgregarActionPerformed(java.awt.event.ActionEvent)
+comment7.params=evt
+comment7.target=void\ textfieldCalleSActionPerformed(java.awt.event.ActionEvent)
+comment8.params=evt
+comment8.target=void\ textfieldCasaActionPerformed(java.awt.event.ActionEvent)
+comment9.params=evt
+comment9.target=void\ textfieldObservacionesActionPerformed(java.awt.event.ActionEvent)
+numComments=13
+>>>>>>> 268bf21b23c39494f71f2dfd321e90bf6a588084

@@ -16,7 +16,7 @@ public class Pedido implements Serializable{
         solicitudes=new ArrayList<>();
 
     }
-
+    
     public Pedido(String nc,Direccion d,String ob){
         nomCliente=nc;
         direccion=d;
