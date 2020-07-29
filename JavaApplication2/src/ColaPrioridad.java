@@ -7,7 +7,7 @@ import java.io.*;
  * @version (a version number or a date)
  */
 public class ColaPrioridad{
-    private Queue<Solicitud>[]colas;
+    private Queue<Pedido>[]colas;
     private ArrayList<Pedido> pedidos;
     private  int numPrioridades =3;
 
@@ -22,6 +22,7 @@ public class ColaPrioridad{
         try {
             do{
                 d = (Pedido)ser.readObject();
+                pedidos.add(d);
 
             }
             while(d!=null);
@@ -37,19 +38,19 @@ public class ColaPrioridad{
             Producto pro=s.getProduc();
             int prioridad= pro.getPrioridad();
             if(prioridades.contains(prioridad)){
-                Queue<Solicitud> cola=colas[prioridad-1];
-                cola.add(s);
+                Queue<Pedido> cola=colas[prioridad-1];
+                cola.add(p);
             }else{
-                Queue<Solicitud> cola1 = new PriorityQueue<Solicitud>(); 
+                Queue<Pedido> cola1 = new PriorityQueue<Pedido>(); 
 
                 colas[prioridad-1]=cola1;
-                cola1.add(s);
+                cola1.add(p);
                 prioridades.add(prioridad);
             }
         }
     }
 
-    private Queue<Solicitud>[] getColas(){
+    private Queue<Pedido>[] getColas(){
         return colas;
     }
 
@@ -58,19 +59,24 @@ public class ColaPrioridad{
         llenar();
 
         for(int i=0;i<colas.length;i++){
-            Queue<Solicitud> cola=colas[i];
+            Queue<Pedido> cola=colas[i];
             if(cola!=null){
                 imprimir(cola);
             }
         }
     }
 
-    private void imprimir( Queue<Solicitud> cola){
-        for(Solicitud s : cola) {
+    private void imprimir( Queue<Pedido> cola){
+        for(Pedido pedi : cola) {
+              ArrayList<Solicitud> solicitudes=pedi.getSoli();
+              for(Solicitud s:solicitudes){
+            
             Producto p=s.getProduc();
             System.out.println(p.getNom()+ " --> " + s.getCant() + "  -- [ " + p.getPrioridad() + "]");
+            System.out.println(pedi.getNomCliente()+ " --> " + pedi.getDireccion().getCalleP() );
         }
     }
+}
 
     private   void llenar()throws IOException {
         try {

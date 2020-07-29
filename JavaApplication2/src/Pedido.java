@@ -25,24 +25,22 @@ public class Pedido implements Serializable{
         precioTotal=0;
     }
 
-<<<<<<< HEAD
+
     public String getNomCliente(){
         return nomCliente;
     }
 
-=======
->>>>>>> 43e95b28c2d4c8b58ec14fbc227d6b6c5b1c0351
+
     public Direccion getDireccion(){
         return direccion;
     }
 
-<<<<<<< HEAD
+
     public String getObservaciones(){
         return observaciones;
     }
 
-=======
->>>>>>> 43e95b28c2d4c8b58ec14fbc227d6b6c5b1c0351
+
     public void setNom(String nc){
         nomCliente=nc;
     }
@@ -75,8 +73,5 @@ public class Pedido implements Serializable{
         return res;
     }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 43e95b28c2d4c8b58ec14fbc227d6b6c5b1c0351
 }
