@@ -5,13 +5,17 @@ import java.util.*;
 public class Grafo{
     private HashMap<String, ArrayList<Nodo>> grafo;
     private boolean dirigido;
-    ArrayList<ArrayList<Nodo>> caminos;
+    ArrayList<ArrayList<String>> caminos;
     private ArrayList <Integer>tamaños;
     public Grafo(boolean dir){
         grafo = new HashMap<String, ArrayList<Nodo>>();
         dirigido = dir;
         caminos = new ArrayList<>();
         tamaños=new ArrayList<>();
+    }
+
+    public HashMap<String, ArrayList<Nodo>> getGrafo(){
+        return grafo;
     }
 
     public void agregarArista(String orig, String dest, String costo){
@@ -65,22 +69,21 @@ public class Grafo{
         grafo.put(v, new ArrayList<Nodo>());
     }
 
-    public ArrayList<ArrayList<Nodo>> caminos(Nodo vo, Nodo vd){
-        String verOr=vo.getVertice();
-        String verDest=vd.getVertice();
+    public void caminos(String vo, String vd){
+
         ArrayList<String> camino = new ArrayList<>();
-        camino.add(verOr);
-        ArrayList<Nodo> vecinos = grafo.get(verOr);
+        camino.add(vo);
+        ArrayList<Nodo> vecinos = grafo.get(vo);
         for(Nodo n : vecinos){
             String act = n.getVertice();
-            ArrayList<Nodo> copia = (ArrayList<Nodo>)camino.clone();
-            copia.add(n);
-            caminos(act, verDest, copia, caminos);
+            ArrayList<String> copia = (ArrayList<String>)camino.clone();
+            copia.add(act);
+            caminos(act, vd, copia, caminos);
         }
-        return caminos;
+
     }
 
-    private void caminos(String vo, String vd, ArrayList<Nodo> camino, ArrayList<ArrayList<Nodo>> res){
+    private void caminos(String vo, String vd, ArrayList<String> camino, ArrayList<ArrayList<String>> res){
         if(vo.equals(vd)){
             res.add(camino);
         }else{
@@ -88,9 +91,9 @@ public class Grafo{
             if(vecinos!=null){
                 for(Nodo n : vecinos){
                     String act = n.getVertice();
-                    ArrayList<Nodo> copia = (ArrayList<Nodo>)camino.clone();
+                    ArrayList<String> copia = (ArrayList<String>)camino.clone();
                     if(!copia.contains(act)){
-                        copia.add(n);
+                        copia.add(act);
                         caminos(act, vd, copia, res);
                     }
                 }
@@ -99,37 +102,49 @@ public class Grafo{
         }
     }
 
-    public ArrayList<Nodo> caminoMenorTam(){
+    public ArrayList<String> caminoMenorTam(String vo, String vd){
+        caminos(vo,vd);
         getTamños();
         int menor = tamaños.get(0);
         int index=0;
-        for (int i = 1; i <tamaños.size(); i++) {
+        for (int i = 0; i <tamaños.size(); i++) {
             if (tamaños.get(i) < menor) {
                 menor =tamaños.get(i);
                 index=i;
 
             }
         }
-        ArrayList<Nodo> caminoCorto= caminos.get(index);
+        ArrayList<String> caminoCorto= caminos.get(index);
 
         return caminoCorto;
     }
 
-    public ArrayList<String> nombrarCalles(){
-        ArrayList<Nodo> caminoCorto=caminoMenorTam();
-        ArrayList<String>res=new ArrayList<>();
-        for(int i=0; i<caminoCorto.size() ; i++){
-            Nodo n=caminoCorto.get(i);
-            String costo=n.getCosto();
-            res.add(costo);
+    public void getTamños(){//princi
 
+        for(int i=0; i<caminos.size() ; i++){
+            ArrayList<String> camino =caminos.get(i);
+            int tam=caminos.size();
+            tamaños.add(tam);
         }
-        return res;
+
     }
 
-    public void getTamños(){
+    // public ArrayList<String> nombrarCalles(){
+    //  ArrayList<String> caminoCorto=caminoMenorTam();
+    //ArrayList<String>res=new ArrayList<>();
+    //for(int i=0; i<caminoCorto.size() ; i++){
+    //    Nodo n=caminoCorto.get(i);
+    // String costo=n.getCosto();
+    // res.add(costo);//retorna calles
+
+    // }
+    //  return res;
+    //}
+
+    public void getTamños(String vo, String vd){//princi
+        caminos(vo,vd);
         for(int i=0; i<caminos.size() ; i++){
-            ArrayList<Nodo> camino =caminos.get(i);
+            ArrayList<String> camino =caminos.get(i);
             int tam=caminos.size();
             tamaños.add(tam);
         }

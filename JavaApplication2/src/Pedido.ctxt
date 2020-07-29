@@ -1,4 +1,5 @@
 #BlueJ class context
+<<<<<<< HEAD
 comment0.target=Pedido
 comment0.text=\n\ Write\ a\ description\ of\ class\ as\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
@@ -26,3 +27,26 @@ comment8.target=void\ setDireccion(Direccion)
 comment9.params=s
 comment9.target=void\ setSoli(java.util.ArrayList)
 numComments=13
+=======
+comment0.params=
+comment0.target=Pedido()
+comment1.params=nc\ d\ ob
+comment1.target=Pedido(java.lang.String,\ Direccion,\ java.lang.String)
+comment2.params=
+comment2.target=Direccion\ getDireccion()
+comment3.params=nc
+comment3.target=void\ setNom(java.lang.String)
+comment4.params=s
+comment4.target=void\ aumen(Solicitud)
+comment5.params=d
+comment5.target=void\ setDireccion(Direccion)
+comment6.params=s
+comment6.target=void\ setSoli(java.util.ArrayList)
+comment7.params=o
+comment7.target=void\ setObs(java.lang.String)
+comment8.params=
+comment8.target=java.util.ArrayList\ getSoli()
+comment9.params=
+comment9.target=double\ precioTotal()
+numComments=10
+>>>>>>> 43e95b28c2d4c8b58ec14fbc227d6b6c5b1c0351

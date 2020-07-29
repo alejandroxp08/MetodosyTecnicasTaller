@@ -9,6 +9,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.Color;
+import java.util.ArrayList;
 public class Animacion extends JPanel
 {
     BufferedImage mapa;
@@ -16,6 +17,7 @@ public class Animacion extends JPanel
     Direccion d;
     int X_moto;
     int Y_moto;
+    ArrayList<String>camino;
     public Animacion(Repartidor r) throws InterruptedException{
         this.r=r;
         this.d=r.getDireccion();
@@ -48,7 +50,7 @@ public class Animacion extends JPanel
                 llego=true;
             }
         }
-        
+        camino=new ArrayList<String>();
     }
     
     public void recorrerX(){
@@ -82,6 +84,15 @@ public class Animacion extends JPanel
         g2d.setColor(Color.black);
         g2d.fillOval(r.getPosX(),r.getPosY(), 15, 15);
         
+    }
+    public ArrayList<String> getCamino(){
+        DOMParser p=new DOMParser();
+        p.agregarVert();
+        Grafo g=new Grafo(true);
+        p.getGrafo();
+        ArrayList<String>camino=g.caminoMenorTam("M","D");
+        
+        return camino;
     }
         
     /*public static void mostrarMapa() throws InterruptedException {

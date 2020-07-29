@@ -4,28 +4,36 @@ import java.io.*;
  * @author Boris
  */
 public class Direccion implements Serializable {
-    String direccion;
-    int posX;
-    int posY;
-    public Direccion(String direccion,int x,int y){
-        this.direccion=direccion;
-        this.posX=x;
-        this.posY=y;
+    String callePrincipal;
+    String calleInterseccion;
+   
+    int numeroCasa;
+    String referencia;
+    public Direccion(String cP,String cI,String referencia,int nC){
+
+        callePrincipal=cP;
+        calleInterseccion=cI;
+        numeroCasa=nC;
+        this.referencia=referencia;
     }
 
-    public String getDireccionNombre(){
-        return this.direccion;
+    public String getCalleP(){
+        return callePrincipal;
+
     }
 
-    public int getPosX(){
-        return this.posX;
+    public String getCalleI(){
+        return calleInterseccion;
     }
 
-    public int getPosY(){
-        return this.posY;
+    public int getNumCasa(){
+        return numeroCasa;
     }
 
-    public void setDireccion(String d){
-        direccion=d;
+  
+
+    public String referencia(){
+        return referencia;
     }
+
 }
