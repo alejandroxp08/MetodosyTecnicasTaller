@@ -176,7 +176,7 @@ public class InterfazCliente extends javax.swing.JFrame {
         String nombre =textfieldCliente1.getText();
         pedidoG.setNom(nombre);
         String direccion=textfieldDireccion.getText();
-        Direccion direccion1=new Direccion(direccion,0,0);
+        Direccion direccion1=new Direccion(direccion,null,null,1);
         pedidoG.setDireccion(direccion1);
         String observaciones=textfieldObservaciones.getText();
         pedidoG.setObs(observaciones);

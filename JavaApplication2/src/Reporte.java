@@ -42,7 +42,7 @@ public class Reporte implements Serializable{
 
     private void mostrarse(Reporte r){
         Pedido d=r.getPedido();
-        System.out.println("======Reporte=====\n"+"Nombre Cliente: "+d.getNomCliente()+" \nDireccion: "+d.getDireccion().direccion);
+        System.out.println("======Reporte=====\n"+"Nombre Cliente: "+d.getNomCliente()+" \nDireccion: "+d.getDireccion());
         mostrarSolicitudes(d.getSoli());
         System.out.println("Observaciones: "+d.getObservaciones());
         System.out.println("Precio Total: "+d.precioTotal());

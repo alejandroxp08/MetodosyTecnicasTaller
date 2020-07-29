@@ -22,7 +22,8 @@ public class ColaPrioridad{
         try {
             do{
                 d = (Pedido)ser.readObject();
-                pedidos.add(d);
+                Pedido p=d;
+                pedidos.add(p);
 
             }
             while(d!=null);

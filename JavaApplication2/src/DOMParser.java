@@ -71,6 +71,7 @@ public class DOMParser {
         }
 
     } 
+
     public   void agregarArisVert()throws IOException{
         main();
         NodeList lista = doc.getElementsByTagName("*");
@@ -97,28 +98,26 @@ public class DOMParser {
             }
             System.out.println(vo+vd+costo);
         }
-    
 
     }
 
-    public void main2( ) throws IOException {
-       
-            ArrayList<String>vertices=new ArrayList<>();
-            for(String key :grafo.keySet()){
-                vertices.add(key);
-            }
+    public ArrayList<String> principal()throws IOException{
+        ArrayList<String>vertices=new ArrayList<>();
+        for(String key :grafo.keySet()){
+            vertices.add(key);
+        }
 
-            String vertice="";
-            //retornarDirecciones ();
-            //String calleP=direccion.getCalleP();
-            //String calleI=direccion.getCalleI();
-            String verticeCom=encontararVertComun("ECUADOR","HAMIRAYA",0, vertice,vertices);
-           
+        String vertice="";
+        retornarDirecciones ();
+        String calleP=direccion.getCalleP();
+        String calleI=direccion.getCalleI();
+        String verticeCom=encontararVertComun(calleP,calleI,0, vertice,vertices);
+        int nc=direccion.getNumCasa();
+        agregarVert();
+        ArrayList<String>camino= EncontrarVertices(verticeCom,calleP,nc);
+        return camino;
 
-        
     }
-        
-
     
     public String encontararVertComun(String calleP,String calleI,int pos,String vertice, ArrayList<String>vertices){// devolver vertice final{
         //Direccion d=p.getDireccion();
@@ -163,9 +162,9 @@ public class DOMParser {
     //if(calleIn.equals(calleI)){
     /// verticeCom=nodo.getVertice();
     //}
-    public  ArrayList<String>  EncontrarVertices(String verticeCom){
+    public  ArrayList<String>  EncontrarVertices(String verticeCom,String calleP,int nc){
         Nodo vertO=new Nodo("M","HEROINAS");
-        Nodo vertD=new Nodo(verticeCom,"JUNIN");
+        Nodo vertD=new Nodo(verticeCom,calleP);
 
         TextoAudio tts=new TextoAudio();
         ArrayList<String> caminoCorto=g.caminoMenorTam( vertO.getVertice(), vertD.getVertice());
@@ -200,6 +199,7 @@ public class DOMParser {
 
             }
         }
+         tts.speak("nc");
         //if (nodoNombre.equals("costo"){
 
         //  String costo=elemento.getChildNodes().item(0).getNodeValue());
@@ -210,12 +210,6 @@ public class DOMParser {
         //}
         return caminoCorto;
     }
-    public ArrayList<String> principal()throws IOException{
-        agregarVert();
-         main2();
-        ArrayList<String>camino= EncontrarVertices("D");
-        return camino;
+
     
-   
-    }
 }

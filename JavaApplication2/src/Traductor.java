@@ -71,7 +71,7 @@ public class Traductor{
     }
 
     private void devolverDireccion(){
-        Direccion res=new Direccion(null,0,0);
+        Direccion res=new Direccion(null,"",null,1);
         String direc=null;
         boolean bb=true;
         int pos=0;
