@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+/*<<<<<<< HEAD
 
 public class Direccion
 {
@@ -24,6 +24,7 @@ import java.io.*;
  *
  * @author Boris
  */
+ import java.io.*;
 public class Direccion implements Serializable {
     String callePrincipal;
     String calleInterseccion;
@@ -64,7 +65,7 @@ public class Direccion implements Serializable {
 
     public String referencia(){
         return referencia;
->>>>>>> f4839526f09d19f3cf6d4318aa6cf4d0e04fc708
+
     }
 
 }
