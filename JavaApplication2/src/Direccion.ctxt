@@ -1,12 +1,20 @@
 #BlueJ class context
+<<<<<<< HEAD
 comment0.target=Direccion
 comment1.params=cP\ cI
 comment1.target=Direccion(java.lang.String,\ java.lang.String)
+=======
+comment0.params=cP\ cI\ referencia\ nC
+comment0.target=Direccion(java.lang.String,\ java.lang.String,\ java.lang.String,\ int)
+comment1.params=
+comment1.target=java.lang.String\ getCalleP()
+>>>>>>> 43e95b28c2d4c8b58ec14fbc227d6b6c5b1c0351
 comment2.params=
 comment2.target=java.lang.String\ getCalleP()
 comment3.params=
 comment3.target=java.lang.String\ getCalleI()
 comment4.params=
+<<<<<<< HEAD
 comment4.target=int\ getNumCasa()
 comment5.params=
 comment5.target=int\ getPosX()
@@ -15,3 +23,7 @@ comment6.target=int\ getPosY()
 comment7.params=
 comment7.target=java.lang.String\ referencia()
 numComments=8
+=======
+comment4.target=java.lang.String\ referencia()
+numComments=5
+>>>>>>> 43e95b28c2d4c8b58ec14fbc227d6b6c5b1c0351

@@ -1,15 +1,16 @@
 #BlueJ class context
-comment0.target=Animacion
-comment1.params=r
-comment1.target=Animacion(Repartidor)
+comment0.params=r
+comment0.target=Animacion(Repartidor)
+comment1.params=
+comment1.target=void\ recorrerX()
 comment2.params=
-comment2.target=void\ recorrerX()
+comment2.target=void\ recorrerY()
 comment3.params=
-comment3.target=void\ recorrerY()
+comment3.target=int\ getPosMotoX()
 comment4.params=
-comment4.target=int\ getPosMotoX()
-comment5.params=
-comment5.target=int\ getPosMotoY()
-comment6.params=g
-comment6.target=void\ paint(java.awt.Graphics)
+comment4.target=int\ getPosMotoY()
+comment5.params=g
+comment5.target=void\ paint(java.awt.Graphics)
+comment6.params=
+comment6.target=java.util.ArrayList\ getCamino()
 numComments=7

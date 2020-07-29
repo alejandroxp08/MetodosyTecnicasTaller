@@ -28,18 +28,15 @@ import java.io.*;
 public class Direccion implements Serializable {
     String callePrincipal;
     String calleInterseccion;
-    int posX;
-    int posY;
+   
     int numeroCasa;
     String referencia;
-    public Direccion(String cP,String cI){//,String referencia,int x,int y,int nC){
+    public Direccion(String cP,String cI,String referencia,int nC){
 
-       // this.posX=x;
-       // this.posY=y;
         callePrincipal=cP;
         calleInterseccion=cI;
-       // numeroCasa=nC;
-        //this.referencia=referencia;
+        numeroCasa=nC;
+        this.referencia=referencia;
     }
 
     public String getCalleP(){
@@ -55,13 +52,7 @@ public class Direccion implements Serializable {
         return numeroCasa;
     }
 
-    public int getPosX(){
-        return this.posX;
-    }
-
-    public int getPosY(){
-        return this.posY;
-    }
+  
 
     public String referencia(){
         return referencia;

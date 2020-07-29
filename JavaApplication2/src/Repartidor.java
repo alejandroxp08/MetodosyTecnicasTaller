@@ -9,27 +9,27 @@ public class Repartidor implements Observador
         this.posY=pos.getY();
         this.dir=dir;
     }
-    
+
     public void setPosX(int x){
         this.posX=x;
     }
-    
+
     public void setPosY(int y){
         this.posY=y;
     }
-    
+
     public int getPosX(){
         return this.posX;
     }
-    
+
     public int getPosY(){
         return this.posY;
     }
-    
+
     public Direccion getDireccion(){
         return this.dir;
     }
-    
+
     @Override
     public void update(){
         try{
@@ -38,5 +38,7 @@ public class Repartidor implements Observador
             e.printStackTrace();
         }
     }
-       
+
+    
+
 }

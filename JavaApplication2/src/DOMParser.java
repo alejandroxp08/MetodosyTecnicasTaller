@@ -7,9 +7,13 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-public class DOMParserOraciones {
+public class DOMParser {
 
     Document doc;
+    Grafo g = new Grafo(true);
+    public Grafo getGrafo(){
+        return g;
+    }
 
     public  void main()  {
         try
@@ -26,28 +30,42 @@ public class DOMParserOraciones {
     }
 
     public  void agregarVert(){
+<<<<<<< HEAD:JavaApplication2/src/DOMParserOraciones.java
         Grafo g = new Grafo(true);
         HashMap<String, ArrayList<Nodo>> grafo = g.getGrafo();
+=======
+
+        HashMap<String, ArrayList<Nodo>>grafo =g.getGrafo();
+>>>>>>> 43e95b28c2d4c8b58ec14fbc227d6b6c5b1c0351:JavaApplication2/src/DOMParser.java
 
         main();
         NodeList lista = doc.getElementsByTagName("vertice");
 
-
         for (int i = 0; i < lista.getLength(); i++) {
-
             Element elemento = (Element)lista.item(i);
             String nodoNombre = elemento.getNodeName();
             if (nodoNombre.equals("vertice")) {
                 String vertice=elemento.getChildNodes().item(0).getNodeValue();
-                 g.agregarVertice(vertice);
+                g.agregarVertice(vertice);
 
             } 
         }
-        agregarArisVert(grafo,g);
+        agregarArisVert(grafo);
 
     }
-   
-    public   void agregarArisVert(HashMap<String, ArrayList<Nodo>>grafo,Grafo g){
+    //private void retornarSolicitudes () {
+    //   ObjectInputStream ser = new ObjectInputStream(new FileInputStream("pedidos.txt"));
+    // Pedido d=new Pedido();
+
+    //    do{
+    //       d = (Pedido)ser.readObject();
+    //       solicitudes=d.getSoli();
+    //   }
+    //   while(d!=null);
+
+    //} 
+
+    public   void agregarArisVert(HashMap<String, ArrayList<Nodo>>grafo){
         main();
         NodeList lista = doc.getElementsByTagName("*");
 
@@ -59,7 +77,6 @@ public class DOMParserOraciones {
 
             if (nodoNombre.equals("vo")) {
                 vo=elemento.getChildNodes().item(0).getNodeValue();
-                
 
             } 
             if (nodoNombre.equals("vd") ){
@@ -74,29 +91,28 @@ public class DOMParserOraciones {
             }
             System.out.println(vo+vd+costo);
         }
-        main2(grafo,g);
+        main2(grafo);
 
     }
 
-    public void main2( HashMap<String, ArrayList<Nodo>>grafo, Grafo g){
-       
+    public void main2( HashMap<String, ArrayList<Nodo>>grafo){
+
         ArrayList<String>vertices=new ArrayList<>();
         for(String key :grafo.keySet()){
             vertices.add(key);
         }
-       
+
         Direccion di=new Direccion("ECUADOR","HAMIRAYA");
         Pedido p=new Pedido("",di,"");
         String vertice="";
         String verticeCom=encontararVertComun("ECUADOR","HAMIRAYA",0,grafo, vertice,vertices);
-        EncontrarVertices(verticeCom,g,grafo);
+        EncontrarVertices(verticeCom,grafo);
     }
 
     public String encontararVertComun(String calleP,String calleI,int pos,  HashMap<String, ArrayList<Nodo>>grafo,String vertice, ArrayList<String>vertices){// devolver vertice final{
         //Direccion d=p.getDireccion();
         //String calleP=d.getCalleP();
         //String calleI=d.getCalleI();
-        
 
         boolean bb=false;
         int numVertices=vertices.size();
@@ -136,7 +152,7 @@ public class DOMParserOraciones {
     //if(calleIn.equals(calleI)){
     /// verticeCom=nodo.getVertice();
     //}
-    public void  EncontrarVertices(String verticeCom,Grafo g,HashMap<String, ArrayList<Nodo>>grafo){
+    public void  EncontrarVertices(String verticeCom,HashMap<String, ArrayList<Nodo>>grafo){
         Nodo vertO=new Nodo("C","HEROINAS");
         Nodo vertD=new Nodo(verticeCom,"JUNIN");
 
@@ -156,23 +172,23 @@ public class DOMParserOraciones {
 
         //  }
         if( caminoCorto!=null){
-        for(int j=0;j<caminoCorto.size()-1;j++){
-            String vo=caminoCorto.get(j+1);
-            String vertice=caminoCorto.get(j);
-            ArrayList<Nodo>vecinosV=grafo.get(vertice );
-            for(Nodo n:vecinosV){
-                String v=n.getVertice();
+            for(int j=0;j<caminoCorto.size()-1;j++){
+                String vo=caminoCorto.get(j+1);
+                String vertice=caminoCorto.get(j);
+                ArrayList<Nodo>vecinosV=grafo.get(vertice );
+                for(Nodo n:vecinosV){
+                    String v=n.getVertice();
 
-                if(v.equals(vo)){
-                    String calle=n.getCosto();
-                    tts.speak(calle);
+                    if(v.equals(vo)){
+                        String calle=n.getCosto();
+                        tts.speak(calle);
+
+                    }
 
                 }
 
             }
-
         }
-    }
         //if (nodoNombre.equals("costo"){
 
         //  String costo=elemento.getChildNodes().item(0).getNodeValue());
