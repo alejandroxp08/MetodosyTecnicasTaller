@@ -2,9 +2,9 @@ import java.io.*;
 import java.util.ArrayList;
 public class Serializacion {
 
-    private FileOutputStream  archivosalida,archivosalida2;
+    private FileOutputStream  archivosalida,archivosalida2,archivosalida3;
     private FileInputStream  archivoentrada;
-    private ObjectOutputStream salida,salida2;
+    private ObjectOutputStream salida,salida2,salida3;
     private ObjectInputStream entrada;
 
     public Serializacion(){
@@ -19,6 +19,12 @@ public class Serializacion {
             d = (Producto) entrada.readObject();
         }
         return d;
+    }
+
+    public void abrirsalida3() 
+    throws IOException {
+        archivosalida3 = new FileOutputStream("reportes.txt");
+        salida2 = new ObjectOutputStream(archivosalida3);
     }
 
     public void abrirsalida2() 
@@ -56,6 +62,10 @@ public class Serializacion {
 
     public void escribir2(Pedido d) throws IOException {
         if (salida2!=null) salida2.writeObject(d);
+    }
+
+    public void escribir3(Reporte r) throws IOException {
+        if (salida2!=null) salida3.writeObject(r);
     }
 
     public void insertarBD()throws IOException{
