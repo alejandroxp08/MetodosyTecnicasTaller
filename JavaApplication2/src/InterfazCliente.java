@@ -15,13 +15,15 @@ import java.util.*;
 public class InterfazCliente extends javax.swing.JFrame {
     private ArrayList<Pedido> pedidos;
     private Pedido pedidoG;
+    private mySingleton ser;
     /**
      * Creates new form InterfazCliente
      */
-    public InterfazCliente() {
+    public InterfazCliente() throws IOException{
         initComponents();
         pedidos=new ArrayList();
         pedidoG=new Pedido();
+        ser=mySingleton.getInstance();
     }
 
     /**
@@ -205,12 +207,11 @@ public class InterfazCliente extends javax.swing.JFrame {
     private Producto agregarSoli(String codigo) throws IOException{
         Producto res=new Producto();
         int cod=Integer.parseInt(codigo);
-        ObjectInputStream ser = new ObjectInputStream(new FileInputStream("productos2.txt"));
         try {
             Producto d;
             boolean  bb=true;
             do{
-                d =(Producto)ser.readObject();
+                d =(Producto)ser.getObject().readObject();
                 if(d.getCodigo()==cod&&bb){
                     res=d;
                     bb=false;
@@ -245,8 +246,11 @@ public class InterfazCliente extends javax.swing.JFrame {
         }
 
         java.awt.EventQueue.invokeLater(new Runnable() {
-                public void run() {
-                    new InterfazCliente().setVisible(true);
+                public void run(){
+                    try{
+                        new InterfazCliente().setVisible(true);
+                    }catch(IOException e){
+                    }
                 }
             });
     }

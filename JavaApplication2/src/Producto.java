@@ -1,5 +1,5 @@
 
-import java.io.Serializable;
+import java.io.*;
 
 public class Producto implements Serializable {
     private static final long serialVersionUID= 1L;
@@ -32,5 +32,27 @@ public class Producto implements Serializable {
 
     public int getPrioridad(){
         return prioridad;
+    }
+
+    public String getFabricante(){
+        return fabricante;
+    }
+
+    public static String nombreFabricante(String producto) throws IOException{
+        String res="";
+        ObjectInputStream ser = new ObjectInputStream(new FileInputStream("productos2.txt"));
+        try {
+            Producto d;
+            int cant=0;
+            do{
+                d = (Producto)ser.readObject();
+                if(d.getNom().equals(producto)){
+                    res=d.getFabricante();
+                }
+            } while(d!=null);
+        } catch (IOException e) {
+        } catch (ClassNotFoundException e) {
+        }
+        return res;
     }
 }

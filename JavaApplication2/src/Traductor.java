@@ -1,5 +1,8 @@
 import java.util.*;
 import java.io.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.regex.*;
 /**
  * Write a description of class Traductor here.
  * 
@@ -16,9 +19,21 @@ public class Traductor{
     public void recibirMensaje()throws IOException{
         Scanner sc=new Scanner(System.in);
         mensaje=sc.nextLine();
-        mensajeDividido=mensaje.split(" |\\,");
-        System.out.println("Mensaje traducido");
-        traducirMensaje();
+        if(esValido(mensaje)){
+            mensajeDividido=mensaje.split(" |\\,");
+            System.out.println("Mensaje traducido");
+            traducirMensaje();
+        }
+    }
+
+    private boolean esValido(String dato){
+        boolean res=false;
+        Pattern pat = Pattern.compile("/([A-z])|(#[0-9]+)|([0-9]+)|(,)[^+-{}()/&%$'\"]/");
+        Matcher mat = pat.matcher(dato);
+        if(mat.find()){
+            res=true;
+        }
+        return res;
     }
 
     private void traducirMensaje()throws IOException{
@@ -89,36 +104,7 @@ public class Traductor{
                 d = (Producto)ser.readObject();
                 for(int i=0;i<mensajeDividido.length;i++){
                     String menDivi=mensajeDividido[i];
-                    if(menDivi.equals(d.getNom())){
-                        if(isNumeric(mensajeDividido[i+1])){
-                            cant=Integer.parseInt(mensajeDividido[i+1]);
-                        }else{
-                            cant=Integer.parseInt(mensajeDividido[i-1]);
-                        }
-                        Solicitud new1=new Solicitud(d,cant);
-                        res.add(new1);
-                    }
-                }
-            } while(d!=null);
-        } catch (IOException e) {
-        } catch (ClassNotFoundException e) {
-        }
-        for(int j=0;j<res.size();j++){
-            res.get(j).mostrarse();
-        }
-        return res;
-    }
-    public ArrayList<Solicitud> devolverSolicitudesLista()throws IOException{
-        ArrayList <Solicitud> res=new ArrayList<>();
-        ObjectInputStream ser = new ObjectInputStream(new FileInputStream("productos2.txt"));
-        try {
-            Producto d;
-            int cant=0;
-            do{
-                d = (Producto)ser.readObject();
-                for(int i=0;i<mensajeDividido.length;i++){
-                    String menDivi=mensajeDividido[i];
-                    if(menDivi.equals(d.getNom())){
+                    if(menDivi.equals(d.getNom())||((menDivi+"s").equals(d.getNom()))||menDivi.equals(d.getNom()+"s")){
                         if(isNumeric(mensajeDividido[i+1])){
                             cant=Integer.parseInt(mensajeDividido[i+1]);
                         }else{
