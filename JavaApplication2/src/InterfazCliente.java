@@ -56,6 +56,7 @@ public class InterfazCliente extends javax.swing.JFrame {
         textfieldCasa = new javax.swing.JTextField();
         jLabelCalleSecundaria = new javax.swing.JLabel();
         jLabelCalleSecundaria1 = new javax.swing.JLabel();
+        jLabelReporte = new javax.swing.JButton();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -86,20 +87,21 @@ public class InterfazCliente extends javax.swing.JFrame {
 
         jLabelObservaciones.setText("Observaciones");
 
-        butonAgregar.setText("Agregar");
-        butonAgregar.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    butonAgregarActionPerformed(evt);
-                }
-            });
-
         jLabel1.setText("introduzca codigo de producto");
 
         jLabelCantidad.setText("Cantidad");
 
         jLabelCalleSecundaria.setText("Calle Secundaria");
-
         jLabelCalleSecundaria1.setText("Numero de Casa");
+        jLabelReporte.setText("Generar Reporte");
+        jLabelReporte.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    try{
+                        jLabelReporteActionPerformed(evt);
+                    }catch(IOException e){
+                    }
+                }
+            });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -142,12 +144,13 @@ public class InterfazCliente extends javax.swing.JFrame {
                             .addComponent(jLabelCalleSecundaria1)
                             .addComponent(textfieldCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelObservaciones)
-                            .addComponent(textfieldObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(textfieldObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelReporte))))
                 .addContainerGap(84, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(buttonAnadir, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,8 +190,10 @@ public class InterfazCliente extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(textfieldObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buttonAnadir)
-                .addGap(22, 22, 22))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonAnadir, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelReporte))
+                .addGap(30, 30, 30))
         );
 
         pack();
@@ -229,17 +234,10 @@ public class InterfazCliente extends javax.swing.JFrame {
         pedidos.add(pedidoG);
     }//GEN-LAST:event_butonAgregarActionPerformed
 
-    private void textfieldCalleSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfieldCalleSActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textfieldCalleSActionPerformed
-
-    private void textfieldCasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfieldCasaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textfieldCasaActionPerformed
-
-    private void textfieldObservacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfieldObservacionesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textfieldObservacionesActionPerformed
+    private void jLabelReporteActionPerformed(java.awt.event.ActionEvent evt) throws IOException{//GEN-FIRST:event_jLabelReporteActionPerformed
+        Reporte reporte=new Reporte(pedidoG);
+        reporte.generarReporte(reporte);
+    }//GEN-LAST:event_jLabelReporteActionPerformed
 
     private Producto agregarSoli(String codigo) throws IOException{
         Producto res=new Producto();
@@ -305,6 +303,7 @@ public class InterfazCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelCliente;
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JLabel jLabelObservaciones;
+    private javax.swing.JButton jLabelReporte;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JTextField textfieldCalleS;
